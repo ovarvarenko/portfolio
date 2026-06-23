@@ -28,7 +28,10 @@ export function Contact() {
           <MagneticButton href={content.contact.linkedinUrl} target="_blank" rel="noopener noreferrer">
             {content.contact.linkedinLabel}
           </MagneticButton>
-          <MagneticButton href={content.contact.cvUrl} download>
+          <MagneticButton
+            href={content.contact.cvUrl}
+            download="CV_Varvarenko_Product & Growth.pdf"
+          >
             {content.contact.cvLabel}
           </MagneticButton>
         </div>

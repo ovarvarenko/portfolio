@@ -227,8 +227,8 @@ export const en: SiteContent = {
           image: "/work/more/ehs-image.jpg",
           title: "EHS Platform",
           description:
-            "Sole designer rebuilding a fragmented enterprise EHS platform — unified design system, microinteractions and UI states across complex compliance workflows.",
-          role: "Sole Product Designer",
+            "Solo designer rebuilding a fragmented enterprise EHS platform — unified design system, microinteractions and UI states across complex compliance workflows.",
+          role: "Solo Product Designer",
           tags: ["Enterprise", "Design System", "Under NDA"],
         },
         {
