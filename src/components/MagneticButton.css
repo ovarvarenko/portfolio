@@ -1,0 +1,43 @@
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast),
+    color var(--transition-fast);
+  will-change: transform;
+}
+
+.magnetic-btn--outline {
+  border: 1px solid var(--line-strong);
+  color: var(--paper);
+}
+
+.magnetic-btn--outline:hover {
+  border-color: var(--amber);
+  background: var(--surface);
+}
+
+.magnetic-btn--solid {
+  background: var(--amber);
+  color: var(--ink);
+  border: 1px solid var(--amber);
+}
+
+.magnetic-btn--solid:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.magnetic-btn span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}

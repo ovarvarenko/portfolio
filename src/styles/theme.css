@@ -1,0 +1,36 @@
+:root {
+  --navy: #0b1530;
+  --ink: #0a0a0c;
+  --bronze: #b5651d;
+  --amber: #d98c3f;
+  --paper: #f7f6f3;
+  --line: rgba(247, 246, 243, 0.18);
+  --line-strong: rgba(247, 246, 243, 0.32);
+  --muted: rgba(247, 246, 243, 0.64);
+  --muted-dim: rgba(247, 246, 243, 0.42);
+  --surface: rgba(247, 246, 243, 0.05);
+  --surface-hover: rgba(247, 246, 243, 0.09);
+
+  --font-heading: "Hanken Grotesk", "Arial", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  --fs-hero: clamp(2.6rem, 4vw + 1.6rem, 6.4rem);
+  --fs-h2: clamp(2rem, 2.2vw + 1.2rem, 3.4rem);
+  --fs-h3: clamp(1.3rem, 0.9vw + 1rem, 1.8rem);
+  --fs-body: clamp(1rem, 0.2vw + 0.92rem, 1.125rem);
+  --fs-small: clamp(0.8rem, 0.1vw + 0.76rem, 0.9rem);
+  --fs-eyebrow: clamp(0.72rem, 0.1vw + 0.7rem, 0.8rem);
+
+  --space-section: clamp(4rem, 8vw, 9rem);
+  --space-gutter: clamp(1.25rem, 4vw, 3rem);
+  --sidebar-w: clamp(3.4rem, 5vw, 4.5rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-out);
+  --transition-base: 0.45s var(--ease-out);
+
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  color-scheme: dark;
+}

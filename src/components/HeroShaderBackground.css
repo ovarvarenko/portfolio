@@ -1,0 +1,14 @@
+.hero-shader-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #000000;
+}
+
+.hero-shader-bg canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

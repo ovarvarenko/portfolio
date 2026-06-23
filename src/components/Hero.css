@@ -1,0 +1,136 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: #000000;
+  padding: clamp(16vh, 20vh, 24vh) clamp(1.5rem, 6vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero__left-fade {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.55) 22%,
+    rgba(0, 0, 0, 0.22) 42%,
+    transparent 62%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__sparkles {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+  color: var(--paper);
+  transform: translate(clamp(0px, 2.08vw, 30px), clamp(-30px, -2.1vw, 0px));
+}
+
+.hero__sparkles svg {
+  width: 21px;
+  height: 21px;
+}
+
+.hero__headline {
+  text-transform: uppercase;
+  transform: translateY(-10px);
+}
+
+.hero__line {
+  display: block;
+  white-space: nowrap;
+  line-height: 0.96;
+}
+
+.hero__line--solid {
+  color: var(--paper);
+  font-weight: 800;
+  font-size: calc((clamp(26px, 5.1vw, 80px) + 10px) * 1.1);
+}
+
+.hero__line--outline {
+  margin-top: 0.1em;
+  color: var(--paper);
+  font-weight: 300;
+  font-style: italic;
+  font-size: calc(clamp(26px, 5.1vw, 80px) * 1.1);
+}
+
+.hero__line--indent-a {
+  margin-left: clamp(0px, 2vw, 24px);
+}
+
+.hero__line--indent-b {
+  margin-left: calc(clamp(0px, 5vw, 64px) + clamp(0px, 7.8vw, 100px));
+}
+
+.hero__line--indent-c {
+  margin-left: calc(clamp(0px, 1.5vw, 16px) + clamp(0px, 28vw, 300px));
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  z-index: 3;
+  right: clamp(1rem, 3vw, 2.25rem);
+  bottom: clamp(2.5rem, 6vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero__scroll-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.hero__scroll-text {
+  writing-mode: vertical-rl;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 12rem;
+  }
+
+  .hero__headline {
+    max-width: none;
+  }
+
+  .hero__line--indent-a,
+  .hero__line--indent-b,
+  .hero__line--indent-c {
+    margin-left: 0;
+  }
+
+  .hero__line {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .hero__scroll-cue {
+    display: none;
+  }
+}
