@@ -6,7 +6,6 @@ import { HowIWork } from "./components/HowIWork";
 import { Contact } from "./components/Contact";
 import { useLenis } from "./hooks/useLenis";
 
-// Verifies the GitHub -> Vercel auto-deploy pipeline.
 function App() {
   useLenis();
 
