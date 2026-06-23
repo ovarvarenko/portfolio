@@ -9,7 +9,7 @@
 
 @media (max-width: 860px) {
   .hero-static-bg {
-    background-image: url("/hero-mobile-bg.png");
+    background-image: url("/hero-mobile-bg.jpg");
     background-size: cover;
     background-position: center;
   }
