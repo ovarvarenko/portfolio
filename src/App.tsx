@@ -4,6 +4,7 @@ import { IntroStatement } from "./components/IntroStatement";
 import { WorkSection } from "./components/WorkSection";
 import { HowIWork } from "./components/HowIWork";
 import { Contact } from "./components/Contact";
+import { LoadingOverlay } from "./components/LoadingOverlay";
 import { useLenis } from "./hooks/useLenis";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <>
+      <LoadingOverlay />
       <Sidebar />
       <main className="page">
         <Hero />

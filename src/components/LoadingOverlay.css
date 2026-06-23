@@ -1,0 +1,12 @@
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000000;
+  opacity: 1;
+  transition: opacity 600ms var(--ease-out);
+}
+
+.loading-overlay--fade-out {
+  opacity: 0;
+}
