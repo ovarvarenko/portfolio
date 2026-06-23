@@ -2,15 +2,22 @@ import { useEffect, type RefObject } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "./useReducedMotion";
+import { useIsMobile } from "./useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function useParallax(ref: RefObject<Element | null>, distance = 40) {
   const reducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reducedMotion) return;
+    if (!el) return;
+
+    if (reducedMotion || isMobile) {
+      gsap.set(el, { clearProps: "transform" });
+      return;
+    }
 
     const tween = gsap.fromTo(
       el,
@@ -31,5 +38,5 @@ export function useParallax(ref: RefObject<Element | null>, distance = 40) {
       tween.scrollTrigger?.kill();
       tween.kill();
     };
-  }, [ref, reducedMotion, distance]);
+  }, [ref, reducedMotion, isMobile, distance]);
 }
