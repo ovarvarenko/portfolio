@@ -28,6 +28,8 @@ export function LoadingOverlay() {
     <div
       className={`loading-overlay ${fadingOut ? "loading-overlay--fade-out" : ""}`}
       aria-hidden="true"
-    />
+    >
+      <span className="loading-overlay__sparkle">✦</span>
+    </div>
   );
 }
