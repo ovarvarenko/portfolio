@@ -17,6 +17,11 @@ dist-ssr
 .env.*
 !.env.example
 
+# Secrets / credentials
+recovery-codes*.txt
+*.pem
+*.key
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
