@@ -304,7 +304,8 @@ export const en: SiteContent = {
     },
   },
   whoIWorkBestWith: {
-    heading: "Who I work best with",
+    eyebrow: "Who I work best with",
+    heading: "Might be the right fit",
     segments: [
       {
         title: "Founders building 0→1",

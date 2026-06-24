@@ -304,7 +304,8 @@ export const ua: SiteContent = {
     },
   },
   whoIWorkBestWith: {
-    heading: "З ким я працюю найкраще",
+    eyebrow: "З ким я працюю найкраще",
+    heading: "Можливо, це про вас",
     segments: [
       {
         title: "Засновники, що будують 0→1",

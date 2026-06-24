@@ -10,6 +10,7 @@ export function WhoIWorkBestWith() {
 
   return (
     <section className="who-fit" id="who-i-work-best-with">
+      <p className="who-fit__eyebrow">{content.whoIWorkBestWith.eyebrow}</p>
       <h2 className="who-fit__heading">{content.whoIWorkBestWith.heading}</h2>
 
       <div className="who-fit__segments" ref={ref}>

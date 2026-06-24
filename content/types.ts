@@ -106,6 +106,7 @@ export interface SiteContent {
     };
   };
   whoIWorkBestWith: {
+    eyebrow: string;
     heading: string;
     segments: WhoIWorkBestWithSegment[];
     notForHeading: string;
