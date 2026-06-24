@@ -37,28 +37,30 @@ export function ProjectModal({
           ×
         </button>
 
-        <h3 className="project-modal__title">{project.title}</h3>
-        <p className="project-modal__role">{modal.role}</p>
+        <div className="project-modal__content">
+          <h3 className="project-modal__title">{project.title}</h3>
+          <p className="project-modal__role">{modal.role}</p>
 
-        <p className="project-modal__body">{modal.body}</p>
+          <p className="project-modal__body">{modal.body}</p>
 
-        <p className="project-modal__label">My role</p>
-        <p className="project-modal__body">{modal.myRole}</p>
+          <p className="project-modal__label">My role</p>
+          <p className="project-modal__body">{modal.myRole}</p>
 
-        <p className="project-modal__label">The challenge</p>
-        <p className="project-modal__body">{modal.challenge}</p>
+          <p className="project-modal__label">The challenge</p>
+          <p className="project-modal__body">{modal.challenge}</p>
 
-        <p className="project-modal__label">Delivered</p>
-        <p className="project-modal__body">{modal.delivered}</p>
+          <p className="project-modal__label">Delivered</p>
+          <p className="project-modal__body">{modal.delivered}</p>
 
-        <a
-          className="project-modal__figma"
-          href={modal.figmaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View in Figma ↗
-        </a>
+          <a
+            className="project-modal__figma"
+            href={modal.figmaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View in Figma ↗
+          </a>
+        </div>
       </div>
     </div>
   );
