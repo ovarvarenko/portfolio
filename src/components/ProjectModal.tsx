@@ -37,7 +37,7 @@ export function ProjectModal({
           ×
         </button>
 
-        <div className="project-modal__content">
+        <div className="project-modal__content" data-lenis-prevent>
           <h3 className="project-modal__title">{project.title}</h3>
           <p className="project-modal__role">{modal.role}</p>
 
