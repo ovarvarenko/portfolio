@@ -2,6 +2,7 @@ import { Sidebar } from "./components/Sidebar";
 import { Hero } from "./components/Hero";
 import { IntroStatement } from "./components/IntroStatement";
 import { WorkSection } from "./components/WorkSection";
+import { WhoIWorkBestWith } from "./components/WhoIWorkBestWith";
 import { HowIWork } from "./components/HowIWork";
 import { Contact } from "./components/Contact";
 import { LoadingOverlay } from "./components/LoadingOverlay";
@@ -18,6 +19,7 @@ function App() {
         <Hero />
         <IntroStatement />
         <WorkSection />
+        <WhoIWorkBestWith />
         <HowIWork />
         <Contact />
       </main>

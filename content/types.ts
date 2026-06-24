@@ -62,6 +62,11 @@ export interface HowIWorkStep {
   body: string;
 }
 
+export interface WhoIWorkBestWithSegment {
+  title: string;
+  body: string;
+}
+
 export interface SiteContent {
   lang: "en" | "ua";
   meta: {
@@ -99,6 +104,12 @@ export interface SiteContent {
       eyebrow: string;
       items: ProjectPreview[];
     };
+  };
+  whoIWorkBestWith: {
+    heading: string;
+    segments: WhoIWorkBestWithSegment[];
+    notForHeading: string;
+    notForBody: string;
   };
   howIWork: {
     eyebrow: string;

@@ -303,6 +303,26 @@ export const en: SiteContent = {
       ],
     },
   },
+  whoIWorkBestWith: {
+    heading: "Who I work best with",
+    segments: [
+      {
+        title: "Founders building 0→1",
+        body: "You have a vision and engineers, but no designer. I'll validate before we open Figma, scope what actually needs to be built, and give you an investor-ready product — not a polished prototype of the wrong thing.",
+      },
+      {
+        title: "Product teams at Seed–Series B",
+        body: "You're past MVP but growth has stalled. I plug into your team to find where the funnel leaks — activation drop-offs, retention gaps, features users ignore — and design fixes that move the metric, not just the mockup.",
+      },
+      {
+        title: "Dev agencies without in-house design",
+        body: "You win clients but hand off rough wireframes or lose deals without design support. I work as your embedded designer — fast, async, clean handoffs your devs won't hate.",
+      },
+    ],
+    notForHeading: "Who I'm not for",
+    notForBody:
+      "Agencies where product development is a conveyor belt — no deep dive into the problem, just execution.",
+  },
   howIWork: {
     eyebrow: "How I work",
     heading: "Three things I don't skip",
