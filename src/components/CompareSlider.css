@@ -4,7 +4,7 @@
   max-width: 360px;
   margin: 0 auto;
   aspect-ratio: 1572 / 3408;
-  border-radius: var(--radius-lg);
+  border-radius: 32px;
   overflow: hidden;
   border: 1px solid var(--line-strong);
   background: var(--surface);
