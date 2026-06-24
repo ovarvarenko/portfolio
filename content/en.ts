@@ -35,7 +35,7 @@ export const en: SiteContent = {
     heading: "A few problems, each solved on its own terms",
     intro:
       "I don't reuse a playbook. Each case below shows a different approach, shaped by what the product and the business actually needed.",
-    figmaCta: "More work in Figma",
+    figmaCta: "Check this designs in my Figma",
     figmaUrl: "https://www.figma.com/design/4jN1TvEN8MfUARqSBnwHsD/Portfolio",
     cases: [
       {
