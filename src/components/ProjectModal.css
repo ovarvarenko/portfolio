@@ -15,11 +15,18 @@
   position: relative;
   width: 100%;
   max-width: 640px;
-  max-height: 85vh;
+  max-height: 80vh;
   overflow-y: auto;
   background: #111;
   padding: 40px;
   border-radius: 4px;
+}
+
+@media (max-width: 860px) {
+  .project-modal {
+    max-height: 90vh;
+    padding: 24px;
+  }
 }
 
 .project-modal__close {
