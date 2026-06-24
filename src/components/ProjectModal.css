@@ -80,20 +80,22 @@
 .project-modal__figma {
   display: inline-block;
   margin-top: 2rem;
-  border: 1px solid #d98c3f;
-  color: #d98c3f;
+  background: transparent;
+  border: 1px solid #666;
+  color: #fff;
   padding: 10px 24px;
   font-size: var(--fs-small);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border-radius: 2px;
-  transition: background-color 200ms ease, color 200ms ease;
+  border-radius: 999px;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
 }
 
 .project-modal__figma:hover {
-  background-color: #d98c3f;
-  color: #000;
+  border-color: #d98c3f;
+  color: #fff;
+  background: var(--surface);
 }
 
 @keyframes project-modal-fade-in {

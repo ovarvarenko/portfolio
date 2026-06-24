@@ -181,16 +181,18 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #d98c3f;
-  border: 1px solid #d98c3f;
-  border-radius: 2px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 999px;
   padding: 10px 20px;
-  transition: background-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
 }
 
 .lead-case__link:hover {
-  background-color: #d98c3f;
-  color: #000000;
+  border-color: #d98c3f;
+  color: #fff;
+  background: var(--surface);
 }
 
 @media (max-width: 860px) {
