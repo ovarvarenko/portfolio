@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useLanguage } from "../hooks/useLanguage";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { MagneticButton } from "./MagneticButton";
@@ -9,6 +9,14 @@ export function Contact() {
   const { content } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   useScrollReveal(ref, { y: 28, stagger: 0.08 });
+  const [copied, setCopied] = useState(false);
+
+  function handleCopyEmail(e: React.MouseEvent | React.KeyboardEvent) {
+    e.preventDefault();
+    navigator.clipboard.writeText(content.contact.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   return (
     <section className="contact" id="contact">
@@ -22,9 +30,22 @@ export function Contact() {
         <p className="contact__subhead">{content.contact.subhead}</p>
 
         <div className="contact__actions">
-          <MagneticButton href={`mailto:${content.contact.email}`} variant="solid">
-            {content.contact.emailLabel}
-          </MagneticButton>
+          <div className="contact__email-wrap">
+            <MagneticButton
+              variant="solid"
+              role="button"
+              tabIndex={0}
+              onClick={handleCopyEmail}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") handleCopyEmail(e);
+              }}
+            >
+              {content.contact.email}
+            </MagneticButton>
+            <span className={`contact__toast ${copied ? "contact__toast--visible" : ""}`}>
+              Copied
+            </span>
+          </div>
           <MagneticButton href={content.contact.linkedinUrl} target="_blank" rel="noopener noreferrer">
             {content.contact.linkedinLabel}
           </MagneticButton>

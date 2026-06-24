@@ -38,6 +38,32 @@
   margin-top: 2rem;
 }
 
+.contact__email-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.contact__toast {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.6rem;
+  background: #ff810a;
+  color: #000;
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 2px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.contact__toast--visible {
+  opacity: 1;
+}
+
 .contact__footer {
   display: flex;
   justify-content: space-between;
