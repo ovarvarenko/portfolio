@@ -54,7 +54,7 @@
 }
 
 .project-modal__role {
-  color: #ff810a;
+  color: #d98c3f;
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -80,8 +80,8 @@
 .project-modal__figma {
   display: inline-block;
   margin-top: 2rem;
-  border: 1px solid #ff810a;
-  color: #ff810a;
+  border: 1px solid #d98c3f;
+  color: #d98c3f;
   padding: 10px 24px;
   font-size: var(--fs-small);
   font-weight: 700;
@@ -92,7 +92,7 @@
 }
 
 .project-modal__figma:hover {
-  background-color: #ff810a;
+  background-color: #d98c3f;
   color: #000;
 }
 

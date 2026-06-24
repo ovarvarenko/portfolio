@@ -32,7 +32,7 @@
 }
 
 .who-fit__segment:hover {
-  border-color: #ff810a;
+  border-color: #d98c3f;
 }
 
 .who-fit__segment-title {
@@ -62,7 +62,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   text-transform: uppercase;
-  color: #ff810a;
+  color: #d98c3f;
   font-size: var(--fs-small);
   letter-spacing: 0.08em;
 }

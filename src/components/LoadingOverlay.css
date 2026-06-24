@@ -18,7 +18,7 @@
   transform: translate(-50%, -50%);
   font-family: var(--font-heading);
   font-size: 48px;
-  color: #ff810a;
+  color: #d98c3f;
   animation: loading-overlay-pulse 900ms ease-in-out infinite;
 }
 
