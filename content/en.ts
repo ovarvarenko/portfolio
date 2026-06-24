@@ -203,6 +203,18 @@ export const en: SiteContent = {
             "Web platform for cargo tracking, route planning and delivery monitoring for an international manufacturing company.",
           role: "Product Designer",
           tags: ["B2B SaaS", "Logistics", "Under NDA"],
+          modal: {
+            role: "Product Designer · Under NDA",
+            body: "Enterprise web platform for cargo tracking, route planning, and delivery monitoring — built for dispatchers, coordinators, and clients of a large international manufacturing company.",
+            myRole:
+              "Joined a live product with active users. Audited existing flows, identified UX gaps, and designed new screens for expanded functionality within an established Material Design system.",
+            challenge:
+              "Adding features to a complex multi-role system without disrupting what users already knew — no room for visual experimentation, every decision had to fit the existing system.",
+            delivered:
+              "Structured Figma handoffs with new flows and screens, ready for dev execution without design bottlenecks.",
+            figmaUrl:
+              "https://www.figma.com/design/4jN1TvEN8MfUARqSBnwHsD/Portfolio?node-id=2927-21924&t=TUkbRhxXqOa2zoCl-1",
+          },
         },
         {
           slug: "eleviate",
@@ -212,6 +224,18 @@ export const en: SiteContent = {
             "End-to-end redesign and rebrand of an AI-powered wellbeing app — fitness, mindfulness, nutrition — built for daily engagement and long-term retention.",
           role: "Product Designer",
           tags: ["B2C", "Wellbeing", "Rebrand"],
+          modal: {
+            role: "Product Designer",
+            body: "Full redesign and rebrand of an AI-powered wellness mobile app — fitness, mindfulness, and nutrition.",
+            myRole:
+              "End-to-end: user interviews → IA restructure → new flows → full rebrand (color, typography, iconography) → high-fidelity prototypes → dev handoff through shipping.",
+            challenge:
+              "Redesigning while the app was live in production, balancing personalization with simplicity without overwhelming existing users.",
+            delivered:
+              "Fully rebranded app with redesigned onboarding and a unified design language across all screens.",
+            figmaUrl:
+              "https://www.figma.com/design/4jN1TvEN8MfUARqSBnwHsD/Portfolio?node-id=916-14105&t=TUkbRhxXqOa2zoCl-1",
+          },
         },
         {
           slug: "diploai",
@@ -221,6 +245,18 @@ export const en: SiteContent = {
             "Solo product designer on an MVP for a regulatory-compliance platform — designed the IA, flows and a scalable design system for early adopters.",
           role: "Solo Product Designer",
           tags: ["B2B SaaS", "Compliance", "Design System"],
+          modal: {
+            role: "Solo Product Designer",
+            body: "Compliance MVP for an automotive regulatory platform — helps organizations track, analyze, and distribute regulatory changes.",
+            myRole:
+              "Solo designer from discovery to delivery. Built IA, user flows, high-fidelity UI, and a scalable design system. Delivered detailed specs and interactive prototypes for a solo-dev team.",
+            challenge:
+              "Making complex regulatory data navigable for non-technical users within startup time and resource constraints.",
+            delivered:
+              "Functional MVP with design system ready for iteration — presented to stakeholders and early adopters at launch.",
+            figmaUrl:
+              "https://www.figma.com/design/4jN1TvEN8MfUARqSBnwHsD/Portfolio?node-id=3841-20576&t=TUkbRhxXqOa2zoCl-1",
+          },
         },
         {
           slug: "ehs-platform",
@@ -230,6 +266,18 @@ export const en: SiteContent = {
             "Solo designer rebuilding a fragmented enterprise EHS platform — unified design system, microinteractions and UI states across complex compliance workflows.",
           role: "Solo Product Designer",
           tags: ["Enterprise", "Design System", "Under NDA"],
+          modal: {
+            role: "Solo Product Designer · Under NDA",
+            body: "Enterprise SaaS for environmental, health, and safety compliance — inspections, real-time alerts, deficiency tracking, risk analytics.",
+            myRole:
+              "Inherited a fragmented product built by multiple designers with no unified vision. Conducted a full UX audit, rebuilt the design system: components, UI states, interaction logic, microinteractions.",
+            challenge:
+              "No consistent foundation — duplicated components, missing states, flows that didn't reflect real user behavior, all in a high-pressure compliance environment.",
+            delivered:
+              "Unified design system with all UI states defined and documented, enabling the dev team to ship without constant design support.",
+            figmaUrl:
+              "https://www.figma.com/design/4jN1TvEN8MfUARqSBnwHsD/Portfolio?node-id=2927-23057&t=TUkbRhxXqOa2zoCl-1",
+          },
         },
         {
           slug: "bo-cocktails",
@@ -239,6 +287,18 @@ export const en: SiteContent = {
             "Product designer on a cocktail-discovery mobile app — IA for a large drinks database, component system, App Store-ready visual design.",
           role: "Product Designer",
           tags: ["B2C", "Mobile", "Consumer"],
+          modal: {
+            role: "Product Designer",
+            body: 'Mobile cocktail discovery app with "what\'s in my bar" ingredient matching and a large structured cocktail database.',
+            myRole:
+              "Designed IA for the full database, discovery flows by category and ingredient, visual system, and a component-based design system built for future scaling.",
+            challenge:
+              "Filtering logic that matches hundreds of cocktails to partial ingredient sets — robust under the hood, simple on the surface for users with different expertise levels.",
+            delivered:
+              'App Store-ready MVP with "Cocktail Sets" and "From What I Have" features, marketing visuals, and dev-ready assets.',
+            figmaUrl:
+              "https://www.figma.com/design/4jN1TvEN8MfUARqSBnwHsD/Portfolio?node-id=916-13840&t=TUkbRhxXqOa2zoCl-1",
+          },
         },
       ],
     },

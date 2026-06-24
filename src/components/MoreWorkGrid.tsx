@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { ProjectPreview } from "../../content/types";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import { ProjectModal } from "./ProjectModal";
 import "./MoreWorkGrid.css";
 
 export function MoreWorkGrid({
@@ -12,13 +13,18 @@ export function MoreWorkGrid({
 }) {
   const gridRef = useRef<HTMLDivElement>(null);
   useScrollReveal(gridRef, { y: 24, duration: 0.7, stagger: 0.08 });
+  const [activeProject, setActiveProject] = useState<ProjectPreview | null>(null);
 
   return (
     <div className="more-work">
       <p className="eyebrow more-work__eyebrow">{eyebrow}</p>
       <div className="more-work__grid" ref={gridRef}>
         {items.map((item) => (
-          <article className="more-work__card" key={item.slug}>
+          <article
+            className="more-work__card"
+            key={item.slug}
+            onClick={() => setActiveProject(item)}
+          >
             <div className="more-work__visual">
               <img src={item.image} alt={`${item.title} preview`} loading="lazy" />
             </div>
@@ -33,6 +39,10 @@ export function MoreWorkGrid({
           </article>
         ))}
       </div>
+
+      {activeProject && (
+        <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
+      )}
     </div>
   );
 }

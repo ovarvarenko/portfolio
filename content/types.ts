@@ -37,6 +37,15 @@ export interface CaseStudy {
   };
 }
 
+export interface ProjectModal {
+  role: string;
+  body: string;
+  myRole: string;
+  challenge: string;
+  delivered: string;
+  figmaUrl: string;
+}
+
 export interface ProjectPreview {
   slug: string;
   image: string;
@@ -44,6 +53,7 @@ export interface ProjectPreview {
   description: string;
   role: string;
   tags: string[];
+  modal: ProjectModal;
 }
 
 export interface HowIWorkStep {
