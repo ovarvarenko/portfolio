@@ -777,10 +777,9 @@ export const en: SiteContent = {
     },
     challenge: {
       cards: [
-        { number: "Challenge 01", text: "Negative reviews hurt the school's reputation" },
-        { number: "Challenge 02", text: "Students called the platform \"confusing\", \"hard to navigate\", \"old-fashioned\"" },
-        { number: "Challenge 03", text: "83% of students used mobile. The platform wasn't built for it" },
-        { number: "Challenge 04", text: "Teachers struggled with unclear workflows too" },
+        { number: "Challenge 01", text: "Negative reviews hurt the school's reputation. Students called the platform \"confusing\", \"hard to navigate\", \"old-fashioned\"" },
+        { number: "Challenge 02", text: "83% of students used mobile. The platform wasn't built for it" },
+        { number: "Challenge 03", text: "Teachers struggled with unclear workflows too" },
       ],
     },
     stats: {
