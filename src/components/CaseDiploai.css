@@ -1,0 +1,619 @@
+.case-diplo {
+  min-height: 100vh;
+  background: #000000;
+  font-family: var(--font-heading);
+}
+
+.case-diplo__main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-diplo__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared gradient-border card technique (matches PDF Expert / SyncSanity) */
+.case-diplo__gradient-card {
+  position: relative;
+}
+
+.case-diplo__gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Shared placeholder image block */
+.case-diplo__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  background: #1a1a1a;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.case-diplo__placeholder-text {
+  font-size: 14px;
+  font-style: italic;
+  color: #666666;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* ============================================
+   SECTION 1 — HERO
+   ============================================ */
+
+.case-diplo__hero {
+  --hero-card-height: 417px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-diplo__hero-card {
+  flex: 45 1 0%;
+  height: var(--hero-card-height);
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-diplo__hero-logo {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.case-diplo__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  text-transform: none;
+  margin-top: 16px;
+}
+
+.case-diplo__hero-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(10, 10, 12, 0.65);
+  margin-top: 24px;
+}
+
+.case-diplo__hero-image-wrap {
+  flex: 30 1 0%;
+  height: var(--hero-card-height);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.case-diplo__hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.case-diplo__hero-meta {
+  flex: 19.6 1 0%;
+  height: var(--hero-card-height);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-diplo__hero-meta-card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000000;
+  border-radius: 24px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.case-diplo__hero-meta-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.case-diplo__hero-meta-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.case-diplo__hero-meta-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-top: 4px;
+}
+
+/* ============================================
+   SECTION 2 — CHALLENGE CARDS
+   ============================================ */
+
+.case-diplo__problem-cards {
+  display: flex;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-diplo__problem-card {
+  flex: 1;
+  background: #6b83ff;
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.case-diplo__problem-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #eceae7;
+  color: #6b83ff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.case-diplo__problem-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+/* ============================================
+   SECTION 3 — THE DECISIONS
+   ============================================ */
+
+.case-diplo__decisions {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-diplo__decisions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-diplo__decision {
+  background: #000000;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-diplo__decision-columns {
+  display: flex;
+}
+
+.case-diplo__decision-left {
+  flex: 1 1 40%;
+  padding: 48px 24px 48px 48px;
+}
+
+.case-diplo__decision-kicker {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.case-diplo__decision-question {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+  margin-bottom: 24px;
+}
+
+.case-diplo__decision-decision {
+  border-left: 3px solid #6b83ff;
+  padding-left: 20px;
+}
+
+.case-diplo__decision-decision-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b83ff;
+  margin-bottom: 12px;
+}
+
+.case-diplo__decision-decision-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--paper);
+}
+
+.case-diplo__decision-right {
+  flex: 0 0 60%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-diplo__decision-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.case-diplo__decision-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.case-diplo__decision-stack-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* ============================================
+   SECTION 4 — RESULTS
+   ============================================ */
+
+.case-diplo__results {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-diplo__results-outer {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-diplo__results-heading {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+  margin-bottom: 24px;
+}
+
+.case-diplo__results-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.case-diplo__results-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.case-diplo__results-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.case-diplo__results-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 16px;
+}
+
+/* ============================================
+   SECTION 5 — KEY LEARNINGS
+   ============================================ */
+
+.case-diplo__key-learnings {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-diplo__key-learnings-card {
+  background: #edf0fd;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-diplo__key-learnings-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-diplo__key-learnings-icon-wrap {
+  width: fit-content;
+  background: #000000;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+}
+
+.case-diplo__key-learnings-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.case-diplo__key-learnings-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin-top: 12px;
+}
+
+.case-diplo__key-learnings-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.case-diplo__key-learnings-column {
+  position: relative;
+  padding-left: 40px;
+}
+
+.case-diplo__key-learnings-column:first-child {
+  padding-left: 0;
+}
+
+.case-diplo__key-learnings-divider {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(10, 10, 12, 0.12);
+}
+
+.case-diplo__key-learnings-column:first-child .case-diplo__key-learnings-divider {
+  display: none;
+}
+
+.case-diplo__key-learnings-divider::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6b83ff;
+}
+
+.case-diplo__key-learnings-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+}
+
+.case-diplo__key-learnings-column-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 8px;
+}
+
+/* ============================================
+   SECTION 6 — FOOTER CTA
+   ============================================ */
+
+.case-diplo__footer {
+  align-items: center;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.case-diplo__next-case {
+  font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  color: var(--paper);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.case-diplo__next-case:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.case-diplo__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.case-diplo__contact-action {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-width: 7ch;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.case-diplo__contact-action:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .case-diplo__hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .case-diplo__hero-card {
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-diplo__hero-image-wrap {
+    height: 320px;
+    flex: 1 1 auto;
+  }
+
+  .case-diplo__hero-meta {
+    flex-direction: row;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-diplo__decision-columns {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .case-diplo__decision-left,
+  .case-diplo__decision-right {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-diplo__hero-image-wrap {
+    height: 250px;
+  }
+
+  .case-diplo__hero-image {
+    object-position: top;
+  }
+
+  .case-diplo__hero-meta {
+    flex-direction: column;
+  }
+
+  .case-diplo__problem-cards {
+    flex-direction: column;
+  }
+
+  .case-diplo__results-cards {
+    flex-direction: column;
+  }
+
+  .case-diplo__decisions-list {
+    gap: 48px;
+  }
+
+  .case-diplo__key-learnings-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-diplo__key-learnings-column {
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .case-diplo__key-learnings-divider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .case-diplo__key-learnings-divider::before {
+    top: -4px;
+    left: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  /* Consistent tight mobile card padding — desktop values (24-48px) waste
+     width on narrow screens. Also fixes .decision-left's asymmetric
+     48/24/48/48 padding (a two-column desktop gap value, same pattern as
+     SyncSanity) that pushed its text off-center once the column stacks. */
+  .case-diplo__hero-card,
+  .case-diplo__hero-meta-card,
+  .case-diplo__problem-card,
+  .case-diplo__decision-left,
+  .case-diplo__decision-right,
+  .case-diplo__results-outer,
+  .case-diplo__results-card,
+  .case-diplo__key-learnings-card {
+    padding: 16px;
+  }
+}

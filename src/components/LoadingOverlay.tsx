@@ -29,7 +29,11 @@ export function LoadingOverlay() {
       className={`loading-overlay ${fadingOut ? "loading-overlay--fade-out" : ""}`}
       aria-hidden="true"
     >
-      <span className="loading-overlay__sparkle">✦</span>
+      <img
+        src="/images/decorative/pdf-expert/role.svg"
+        alt=""
+        className="loading-overlay__sparkle"
+      />
     </div>
   );
 }

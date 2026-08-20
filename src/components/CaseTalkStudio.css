@@ -1,0 +1,550 @@
+.case-ts {
+  --ts-accent: #e9f0a4;
+  min-height: 100vh;
+  background: #000000;
+  font-family: var(--font-heading);
+}
+
+/* Shared gradient-border card technique (matches other case pages) */
+.case-ts__gradient-card {
+  position: relative;
+}
+
+.case-ts__gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============================================
+   SECTION 1 — HERO
+   ============================================ */
+
+.case-ts__hero {
+  --hero-card-height: 410px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-ts__hero-card {
+  flex: 75 1 0%;
+  height: var(--hero-card-height);
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.case-ts__hero-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: brightness(0);
+}
+
+.case-ts__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  text-transform: none;
+  margin-top: 20px;
+}
+
+.case-ts__hero-support {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(10, 10, 12, 0.65);
+  margin-top: 20px;
+  max-width: 60ch;
+}
+
+.case-ts__hero-meta {
+  flex: 25 1 0%;
+  height: var(--hero-card-height);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-ts__hero-meta-card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000000;
+  border-radius: 24px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.case-ts__hero-meta-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.case-ts__hero-meta-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.case-ts__hero-meta-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-top: 4px;
+}
+
+/* ============================================
+   SECTION 2 — THE CHALLENGE
+   ============================================ */
+
+.case-ts__challenge {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 56px;
+}
+
+.case-ts__challenge-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.case-ts__challenge-card {
+  flex: 1;
+  background: var(--ts-accent);
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.case-ts__challenge-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #0a0a0c;
+  color: var(--ts-accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.case-ts__challenge-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #0a0a0c;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.case-ts__section-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+  margin: 0;
+}
+
+/* ============================================
+   SECTION 3 — STATS GRID
+   ============================================ */
+
+.case-ts__stats-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-ts__stats-card {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-ts__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.case-ts__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-ts__stat-value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ts-accent);
+}
+
+.case-ts__stat-caption {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 12px 0 0;
+}
+
+/* ============================================
+   SECTION 4 — RESEARCH
+   ============================================ */
+
+.case-ts__research {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-ts__research-card {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-ts__research-intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 20px 0 0;
+  max-width: 72ch;
+}
+
+.case-ts__research-blocks {
+  margin-top: 36px;
+}
+
+.case-ts__research-block {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-ts__research-block:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.case-ts__research-block-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--paper);
+  margin: 0;
+}
+
+.case-ts__research-block-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 10px 0 0;
+  max-width: 72ch;
+}
+
+/* ============================================
+   SECTION 5 — PROBLEMS TO SOLUTIONS
+   ============================================ */
+
+.case-ts__solutions {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-ts__solutions-table {
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-ts__solutions-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin: 0;
+  padding: 32px 40px 8px;
+}
+
+.case-ts__solutions-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 40px;
+  border-bottom: 1px solid rgba(10, 10, 12, 0.08);
+}
+
+.case-ts__solutions-row:nth-child(even) {
+  background: rgba(10, 10, 12, 0.03);
+}
+
+.case-ts__solutions-row:last-child {
+  border-bottom: none;
+}
+
+.case-ts__solutions-problem {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(10, 10, 12, 0.6);
+  margin: 0;
+}
+
+.case-ts__solutions-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #0a0a0c;
+  color: var(--ts-accent);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.case-ts__solutions-arrow::before {
+  content: "→";
+  transform: translateY(-1px);
+}
+
+.case-ts__solutions-solution {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ============================================
+   SECTION 6 — KEY LEARNINGS
+   ============================================ */
+
+.case-ts__key-learnings {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-ts__key-learnings-card {
+  background: #edf0fd;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-ts__key-learnings-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-ts__key-learnings-icon-wrap {
+  width: fit-content;
+  background: #000000;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+}
+
+.case-ts__key-learnings-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.case-ts__key-learnings-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin-top: 12px;
+}
+
+.case-ts__key-learnings-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.case-ts__key-learnings-column {
+  position: relative;
+  padding-left: 40px;
+}
+
+.case-ts__key-learnings-column:first-child {
+  padding-left: 0;
+}
+
+.case-ts__key-learnings-divider {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(10, 10, 12, 0.12);
+}
+
+.case-ts__key-learnings-column:first-child .case-ts__key-learnings-divider {
+  display: none;
+}
+
+.case-ts__key-learnings-divider::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ts-accent);
+}
+
+.case-ts__key-learnings-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+}
+
+.case-ts__key-learnings-column-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 8px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .case-ts__hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .case-ts__hero-card {
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-ts__hero-meta {
+    flex-direction: row;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-ts__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .case-ts__hero-meta {
+    flex-direction: column;
+  }
+
+  .case-ts__challenge-cards {
+    flex-direction: column;
+  }
+
+  .case-ts__stats {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .case-ts__solutions-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px;
+  }
+
+  .case-ts__solutions-arrow {
+    display: none;
+  }
+
+  .case-ts__key-learnings-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-ts__key-learnings-column {
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .case-ts__key-learnings-divider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .case-ts__key-learnings-divider::before {
+    top: -4px;
+    left: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  .case-ts__hero-card,
+  .case-ts__challenge-card,
+  .case-ts__stats-card,
+  .case-ts__research-card,
+  .case-ts__key-learnings-card {
+    padding: 16px;
+  }
+
+  .case-ts__solutions-heading {
+    padding: 16px 16px 8px;
+  }
+
+  .case-ts__solutions-row {
+    padding: 16px;
+  }
+}

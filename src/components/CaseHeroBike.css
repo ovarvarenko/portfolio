@@ -1,0 +1,894 @@
+.case-hb {
+  --hb-lemon: #e9f0a4;
+  min-height: 100vh;
+  background: #000000;
+  font-family: var(--font-heading);
+}
+
+.case-hb__main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-hb__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared gradient-border card technique (matches other case pages) */
+.case-hb__gradient-card {
+  position: relative;
+}
+
+.case-hb__gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.case-hb__section-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+  margin: 0;
+}
+
+/* ============================================
+   SECTION 1 — HERO
+   ============================================ */
+
+.case-hb__hero {
+  --hero-card-height: 410px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-hb__hero-card {
+  flex: 75 1 0%;
+  height: var(--hero-card-height);
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.case-hb__hero-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.case-hb__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  text-transform: none;
+  margin-top: 20px;
+}
+
+.case-hb__hero-intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(10, 10, 12, 0.65);
+  margin-top: 20px;
+  max-width: 60ch;
+}
+
+.case-hb__hero-meta {
+  flex: 25 1 0%;
+  height: var(--hero-card-height);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-hb__hero-meta-card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000000;
+  border-radius: 24px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.case-hb__hero-meta-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.case-hb__hero-meta-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.case-hb__hero-meta-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-top: 4px;
+}
+
+/* ============================================
+   SECTION 2 — THE CHALLENGE
+   ============================================ */
+
+.case-hb__challenge {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 56px;
+}
+
+.case-hb__challenge-cards {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.case-hb__challenge-card {
+  flex: 1;
+  background: var(--hb-lemon);
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.case-hb__challenge-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #0a0a0c;
+  color: var(--hb-lemon);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.case-hb__challenge-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #0a0a0c;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+/* ============================================
+   SECTION 3 — RESEARCH FINDINGS
+   ============================================ */
+
+.case-hb__research {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-hb__research-card {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-hb__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 36px;
+}
+
+.case-hb__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-hb__stat-value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--hb-lemon);
+}
+
+.case-hb__stat-caption {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 12px 0 0;
+}
+
+.case-hb__chart {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-hb__chart-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.case-hb__chart-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--paper);
+  margin: 8px 0 0;
+}
+
+.case-hb__chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.case-hb__chart-bar-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 56px;
+  align-items: center;
+  gap: 16px;
+}
+
+.case-hb__chart-bar-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.case-hb__chart-bar-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.case-hb__chart-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--hb-lemon);
+}
+
+.case-hb__chart-bar-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--paper);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.case-hb__quotes {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-hb__quotes-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 24px;
+}
+
+.case-hb__quotes-row {
+  display: flex;
+  gap: 24px;
+}
+
+.case-hb__quote-card {
+  flex: 1;
+  position: relative;
+  background: var(--hb-lemon);
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.case-hb__quote-card--0 {
+  transform: rotate(-2deg);
+}
+
+.case-hb__quote-card--1 {
+  transform: rotate(1.5deg);
+}
+
+.case-hb__quote-card--2 {
+  transform: rotate(-1deg);
+}
+
+.case-hb__quote-mark {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  line-height: 1;
+  color: rgba(10, 10, 12, 0.25);
+}
+
+.case-hb__quote-text {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #0a0a0c;
+  margin: 8px 0 0;
+}
+
+/* ============================================
+   SECTION 4 — THE JOB TO BE DONE
+   ============================================ */
+
+.case-hb__jtbd {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-hb__jtbd-card {
+  background: #000000;
+  border-radius: 24px;
+  padding: 56px;
+  overflow: hidden;
+}
+
+.case-hb__jtbd-statement {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 1.6vw + 1rem, 2.1rem);
+  line-height: 1.5;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 28px 0 0;
+  max-width: 56ch;
+}
+
+.case-hb__jtbd-highlight {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+/* ============================================
+   BEHAVIOR LOOP
+   ============================================ */
+
+.case-hb__behavior {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-hb__behavior-card {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-hb__behavior-kicker {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hb-lemon);
+}
+
+.case-hb__behavior-phases {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.case-hb__behavior-phase {
+  flex: 1;
+}
+
+.case-hb__behavior-phase-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.6vw + 0.6rem, 2.4rem);
+  font-weight: 800;
+  color: var(--paper);
+  white-space: nowrap;
+}
+
+.case-hb__behavior-phase-caption {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 10px 0 0;
+}
+
+.case-hb__behavior-arrow {
+  flex: 0 0 auto;
+  font-size: 24px;
+  color: var(--hb-lemon);
+}
+
+/* ============================================
+   SECTION 5 — PROBLEMS TO IDEAS
+   ============================================ */
+
+.case-hb__problems {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-hb__problems-table {
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-hb__problems-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin: 0;
+  padding: 32px 40px 8px;
+}
+
+.case-hb__problems-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 40px;
+  border-bottom: 1px solid rgba(10, 10, 12, 0.08);
+}
+
+.case-hb__problems-row:nth-child(even) {
+  background: rgba(10, 10, 12, 0.03);
+}
+
+.case-hb__problems-row:last-child {
+  border-bottom: none;
+}
+
+.case-hb__problems-problem {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(10, 10, 12, 0.6);
+  margin: 0;
+}
+
+.case-hb__problems-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #0a0a0c;
+  color: var(--hb-lemon);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.case-hb__problems-arrow::before {
+  content: "→";
+  transform: translateY(-1px);
+}
+
+.case-hb__problems-idea {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ============================================
+   SECTION 6 — WHAT I SCOPED
+   ============================================ */
+
+.case-hb__scope {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-hb__scope-card {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-hb__scope-body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 72ch;
+  margin: 20px 0 0;
+}
+
+.case-hb__scope-diagram-wrap {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 32px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.case-hb__scope-diagram {
+  display: block;
+  width: 100%;
+  min-width: 900px;
+  height: auto;
+}
+
+/* ============================================
+   SECTION 7 — WHAT WAS DELIVERED
+   ============================================ */
+
+.case-hb__delivered {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 56px;
+}
+
+.case-hb__delivered-outer {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-hb__delivered-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.case-hb__delivered-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.case-hb__delivered-marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--hb-lemon);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.case-hb__delivered-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ============================================
+   SECTION 8 — KEY LEARNINGS
+   ============================================ */
+
+.case-hb__key-learnings {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-hb__key-learnings-card {
+  background: #edf0fd;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-hb__key-learnings-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-hb__key-learnings-icon-wrap {
+  width: fit-content;
+  background: #000000;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+}
+
+.case-hb__key-learnings-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.case-hb__key-learnings-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin-top: 12px;
+}
+
+.case-hb__key-learnings-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.case-hb__key-learnings-column {
+  position: relative;
+  padding-left: 40px;
+}
+
+.case-hb__key-learnings-column:first-child {
+  padding-left: 0;
+}
+
+.case-hb__key-learnings-divider {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(10, 10, 12, 0.12);
+}
+
+.case-hb__key-learnings-column:first-child .case-hb__key-learnings-divider {
+  display: none;
+}
+
+.case-hb__key-learnings-divider::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hb-lemon);
+}
+
+.case-hb__key-learnings-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+}
+
+.case-hb__key-learnings-column-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 8px;
+}
+
+/* ============================================
+   FOOTER CTA
+   ============================================ */
+
+.case-hb__footer {
+  align-items: center;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.case-hb__next-case {
+  font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  color: var(--paper);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.case-hb__next-case:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.case-hb__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.case-hb__contact-action {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-width: 7ch;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.case-hb__contact-action:hover {
+  border-color: var(--hb-lemon);
+  color: var(--hb-lemon);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .case-hb__hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .case-hb__hero-card {
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-hb__hero-meta {
+    flex-direction: row;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-hb__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .case-hb__hero-meta {
+    flex-direction: column;
+  }
+
+  .case-hb__challenge-cards {
+    flex-direction: column;
+  }
+
+  .case-hb__chart-bar-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .case-hb__chart-bar-value {
+    text-align: left;
+  }
+
+  .case-hb__quotes-row {
+    flex-direction: column;
+  }
+
+  .case-hb__quote-card--0,
+  .case-hb__quote-card--1,
+  .case-hb__quote-card--2 {
+    transform: none;
+  }
+
+  .case-hb__delivered-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-hb__stats {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .case-hb__behavior-phases {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .case-hb__behavior-arrow {
+    transform: rotate(90deg);
+  }
+
+  .case-hb__problems-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px;
+  }
+
+  .case-hb__problems-arrow {
+    display: none;
+  }
+
+  .case-hb__key-learnings-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-hb__key-learnings-column {
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .case-hb__key-learnings-divider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .case-hb__key-learnings-divider::before {
+    top: -4px;
+    left: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  /* Consistent tight mobile card padding — desktop values (24-56px) waste
+     width on narrow screens. */
+  .case-hb__hero-card,
+  .case-hb__challenge-card,
+  .case-hb__research-card,
+  .case-hb__quote-card,
+  .case-hb__jtbd-card,
+  .case-hb__behavior-card,
+  .case-hb__scope-card,
+  .case-hb__delivered-outer,
+  .case-hb__delivered-card,
+  .case-hb__key-learnings-card {
+    padding: 16px;
+  }
+
+  .case-hb__problems-heading {
+    padding: 16px 16px 8px;
+  }
+
+  .case-hb__problems-row {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,48 @@
+.contact-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  padding: clamp(5rem, 12vw, 9rem) clamp(1.5rem, 6vw, 6rem);
+  background: #000000;
+}
+
+.contact-cta__heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  color: var(--paper);
+  max-width: 20ch;
+}
+
+.contact-cta__subtext {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.contact-cta__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-cta__action {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+  min-width: 7ch;
+}
+
+.contact-cta__action:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}

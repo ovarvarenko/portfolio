@@ -1,0 +1,857 @@
+.case-pdfx {
+  min-height: 100vh;
+  background: #000000;
+  font-family: var(--font-heading);
+}
+
+.case-pdfx__main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 6vw, 3rem);
+}
+
+.case-pdfx__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   SECTION 1 — HERO
+   ============================================ */
+
+.case-pdfx__hero {
+  --hero-card-height: 417px;
+  display: flex;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px clamp(0.75rem, 3vw, 3rem);
+}
+
+/* Part 1 — main card (~75%) */
+
+.case-pdfx__hero-card {
+  position: relative;
+  flex: 79.75 1 0%;
+  height: var(--hero-card-height);
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-pdfx__hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.case-pdfx__hero-card-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.case-pdfx__hero-left {
+  flex: 0 0 55%;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-pdfx__hero-right {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.case-pdfx__hero-logo {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.case-pdfx__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  text-transform: none;
+  margin-top: 16px;
+}
+
+.case-pdfx__hero-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(10, 10, 12, 0.65);
+  margin-top: 24px;
+}
+
+.case-pdfx__hero-image {
+  width: 250px;
+  height: auto;
+  border-radius: 24px;
+  margin-top: 180px;
+  display: block;
+}
+
+/* Part 2 — meta cards (~25%) */
+
+.case-pdfx__hero-meta {
+  flex: 20.25 1 0%;
+  height: var(--hero-card-height);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-pdfx__hero-meta-card {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000000;
+  border-radius: 24px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.case-pdfx__hero-meta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.case-pdfx__hero-meta-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.case-pdfx__hero-meta-card:nth-child(3) .case-pdfx__hero-meta-icon {
+  width: 28.8px;
+  height: 28.8px;
+}
+
+.case-pdfx__hero-meta-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.case-pdfx__hero-meta-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-top: 4px;
+}
+
+/* ============================================
+   HEADINGS & BODY TEXT
+   ============================================ */
+
+.case-pdfx__heading {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.case-pdfx__body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 700px;
+  margin-top: 1.5rem;
+}
+
+/* ============================================
+   THREE PROBLEM CARDS (replaces old gap/shift)
+   ============================================ */
+
+.case-pdfx__problem-cards {
+  display: flex;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-pdfx__problem-card {
+  position: relative;
+  flex: 1;
+  background: #576ef0;
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.case-pdfx__problem-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.case-pdfx__problem-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eceae7;
+  color: #576ef0;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.case-pdfx__problem-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+/* ============================================
+   RESEARCH FINDINGS
+   ============================================ */
+
+.case-pdfx__research {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-pdfx__research-card {
+  position: relative;
+  background: #000000;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-pdfx__research-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.case-pdfx__research-card-inner {
+  display: flex;
+  width: 100%;
+}
+
+.case-pdfx__research-left {
+  flex: 0 0 55%;
+  padding: 48px;
+}
+
+.case-pdfx__research-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.case-pdfx__research-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.case-pdfx__research-insight-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+}
+
+.case-pdfx__research-insight-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+}
+
+.case-pdfx__research-right {
+  flex: 0 0 45%;
+  overflow: hidden;
+}
+
+.case-pdfx__research-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ============================================
+   EXPERIMENT A/B/C + HYPOTHESES
+   ============================================ */
+
+.case-pdfx__experiment {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-pdfx__experiment-card {
+  position: relative;
+  background: #eceae7;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-pdfx__experiment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.case-pdfx__experiment-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #576ef0;
+  margin-bottom: 32px;
+}
+
+.case-pdfx__experiment-variants {
+  display: flex;
+  gap: 24px;
+}
+
+.case-pdfx__experiment-variant {
+  flex: 1;
+  padding: 24px;
+  background: #e5e2dc;
+  border: 1px solid rgba(10, 10, 12, 0.12);
+  border-radius: 24px;
+}
+
+.case-pdfx__experiment-variant-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.case-pdfx__experiment-variant-text {
+  font-size: 14px;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 8px;
+}
+
+.case-pdfx__experiment-hypotheses {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.case-pdfx__experiment-hypothesis {
+  border-left: 3px solid #576ef0;
+  padding-left: 20px;
+}
+
+.case-pdfx__experiment-hypothesis-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+}
+
+.case-pdfx__experiment-hypothesis-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(10, 10, 12, 0.65);
+  margin-top: 8px;
+  max-width: 800px;
+}
+
+.case-pdfx__experiment-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  object-fit: contain;
+  margin-top: 48px;
+}
+
+.case-pdfx__screen-gallery {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  height: 520px;
+}
+
+.case-pdfx__screen-gallery-main {
+  flex: 1 1 auto;
+  height: 100%;
+  min-width: 0;
+}
+
+.case-pdfx__screen-gallery-main-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: contain;
+  background: #000000;
+}
+
+.case-pdfx__screen-gallery-covers {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.case-pdfx__screen-gallery-cover {
+  position: relative;
+  flex: 1;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000000;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast);
+}
+
+.case-pdfx__screen-gallery-cover:hover {
+  opacity: 0.85;
+}
+
+.case-pdfx__screen-gallery-cover--active {
+  opacity: 1;
+  border-color: #576ef0;
+}
+
+.case-pdfx__screen-gallery-cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.case-pdfx__screen-gallery-cover-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* ============================================
+   SECTION 6 — METRICS FRAMEWORK
+   ============================================ */
+
+.case-pdfx__metrics {
+  max-width: 1400px;
+  margin: -4px auto 0;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-pdfx__metrics-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.case-pdfx__metrics-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-pdfx__metrics-card {
+  border-radius: 24px;
+  padding: 48px;
+}
+
+.case-pdfx__metrics-card--primary {
+  background: #576ef0;
+}
+
+.case-pdfx__metrics-card--light {
+  background: #e5e2dc;
+}
+
+.case-pdfx__metrics-card--diagnostic {
+  height: 100%;
+}
+
+.case-pdfx__metrics-card-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 12, 0.55);
+}
+
+.case-pdfx__metrics-card--primary .case-pdfx__metrics-card-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.case-pdfx__metrics-card-label--accent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.case-pdfx__metrics-card-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 8px;
+}
+
+.case-pdfx__metrics-card--primary .case-pdfx__metrics-card-value {
+  color: #ffffff;
+}
+
+.case-pdfx__metrics-card-note {
+  font-size: 18px;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 12px;
+}
+
+.case-pdfx__metrics-card-note--bold {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.case-pdfx__metrics-card-note-suffix {
+  font-weight: 400;
+}
+
+.case-pdfx__metrics-card-value-suffix {
+  font-weight: 400;
+}
+
+.case-pdfx__metrics-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.case-pdfx__metrics-card-row + .case-pdfx__metrics-card-row {
+  margin-top: 12px;
+}
+
+.case-pdfx__metrics-card-row .case-pdfx__metrics-card-value,
+.case-pdfx__metrics-card-row .case-pdfx__metrics-card-note,
+.case-pdfx__metrics-card-row .case-pdfx__metrics-tags {
+  margin-top: 0;
+}
+
+.case-pdfx__metrics-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.case-pdfx__metrics-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(87, 110, 240, 0.16);
+  color: #576ef0;
+  flex-shrink: 0;
+}
+
+.case-pdfx__metrics-tag--primary {
+  background: #ffffff;
+  color: #576ef0;
+}
+
+.case-pdfx__metrics-diagnostic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.case-pdfx__metrics-diagnostic-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ============================================
+   SECTION 9 — FOOTER CTA
+   ============================================ */
+
+.case-pdfx__footer {
+  align-items: center;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.case-pdfx__next-case {
+  font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  color: var(--paper);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.case-pdfx__next-case:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.case-pdfx__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.case-pdfx__contact-action {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-width: 7ch;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.case-pdfx__contact-action:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .case-pdfx__hero {
+    flex-direction: column;
+  }
+
+  /* In column mode, flex-basis:0% (from the desktop width-split shorthand)
+     hijacks the main axis (now height) and ignores the fixed height below.
+     Reset to a plain block-level size so the explicit height applies again. */
+  .case-pdfx__hero-card {
+    flex: none;
+    width: 100%;
+  }
+
+  .case-pdfx__hero-meta {
+    flex: none;
+    width: 100%;
+    height: 140px;
+    flex-direction: row;
+  }
+
+  .case-pdfx__research-card-inner {
+    flex-direction: column;
+  }
+
+  .case-pdfx__research-left,
+  .case-pdfx__research-right {
+    flex: 1 1 auto;
+  }
+
+  .case-pdfx__research-right {
+    order: -1;
+  }
+
+  .case-pdfx__research-image {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 860px) {
+  .case-pdfx__main {
+    gap: clamp(60px, 12vw, 90px);
+  }
+}
+
+@media (max-width: 768px) {
+  .case-pdfx__hero-card {
+    height: auto;
+  }
+
+  .case-pdfx__hero-card-inner {
+    flex-direction: column;
+  }
+
+  .case-pdfx__hero-left {
+    flex: 1 1 auto;
+  }
+
+  /* Static peek: card height = text + this fixed strip, image top-aligned
+     and cropped by overflow — no more desktop margin-top push, no gap. */
+  .case-pdfx__hero-right {
+    flex: none;
+    height: 250px;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .case-pdfx__hero-image {
+    width: 190px;
+    margin-top: 0;
+  }
+
+  .case-pdfx__problem-cards {
+    flex-direction: column;
+  }
+
+  .case-pdfx__hero-meta {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .case-pdfx__research-left {
+    padding: 24px;
+  }
+
+  .case-pdfx__experiment-variants {
+    flex-direction: column;
+  }
+
+  .case-pdfx__screen-gallery {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .case-pdfx__screen-gallery-main {
+    height: 260px;
+  }
+
+  .case-pdfx__screen-gallery-covers {
+    flex-direction: row;
+    height: 120px;
+  }
+
+  .case-pdfx__metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 425px) {
+  /* flex: 0 0 260px above is a width-basis meant for row layout; in the
+     column-direction gallery it hijacks height too, overriding height:120px.
+     Reset the basis so an explicit height applies, then crop it further. */
+  .case-pdfx__screen-gallery-covers {
+    flex: none;
+    height: 130px;
+  }
+
+  /* Consistent tight mobile card padding — desktop values (32-48px) waste
+     width on narrow screens. */
+  .case-pdfx__hero-left,
+  .case-pdfx__hero-meta-card,
+  .case-pdfx__problem-card,
+  .case-pdfx__research-left,
+  .case-pdfx__experiment-card,
+  .case-pdfx__experiment-variant,
+  .case-pdfx__metrics-card {
+    padding: 16px;
+  }
+}

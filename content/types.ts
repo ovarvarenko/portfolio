@@ -1,70 +1,340 @@
-export interface Metric {
-  value: string;
+export interface HeroSegment {
   label: string;
+  description: string;
 }
 
-export interface ProcessStep {
-  title: string;
-  body: string;
-}
-
-export interface CaseLink {
-  label: string;
-  url: string;
-}
-
-export interface CaseStudy {
+export interface ProjectCard {
   slug: string;
-  client: string;
-  role: string;
-  tags: string[];
-  cover: string;
+  title: string;
+  summary: string;
+  tag: string;
   images: string[];
-  eyebrow: string;
-  metricsLabel?: string;
+  pills?: string[];
+  problem?: string;
+  approach?: string;
+}
+
+export interface ConsultCard {
+  slug: string;
+  tag: string;
+  title: string;
   problem: string;
-  processLabel?: string;
-  process: ProcessStep[];
-  result: string[];
-  metrics: Metric[];
-  links?: CaseLink[];
-  isLead?: boolean;
-  compareImages?: {
-    before: string;
-    after: string;
-    beforeLabel: string;
-    afterLabel: string;
-  };
+  result: string;
+  context: string;
 }
 
-export interface ProjectModal {
-  role: string;
-  body: string;
-  myRole: string;
-  challenge: string;
-  delivered: string;
-  figmaUrl: string;
-}
-
-export interface ProjectPreview {
+export interface MoreProject {
   slug: string;
   image: string;
   title: string;
   description: string;
-  role: string;
+  results: string[];
   tags: string[];
-  modal: ProjectModal;
 }
 
-export interface HowIWorkStep {
+export interface CaseHeroMetaItem {
+  label: string;
+  value: string;
+}
+
+export interface CaseProblemCard {
   number: string;
-  title: string;
-  body: string;
+  text: string;
 }
 
-export interface WhoIWorkBestWithSegment {
+export interface CaseResearchInsight {
   title: string;
-  body: string;
+  text: string;
+}
+
+export interface CaseExperimentVariant {
+  label: string;
+  text: string;
+}
+
+export interface CaseExperimentHypothesis {
+  title: string;
+  text: string;
+}
+
+export interface CaseExperimentScreen {
+  label: string;
+  image: string;
+}
+
+export interface CaseExperiment {
+  label: string;
+  variants: CaseExperimentVariant[];
+  hypotheses: CaseExperimentHypothesis[];
+  image: string;
+  screens: CaseExperimentScreen[];
+}
+
+export interface CaseMetricTagged {
+  tag: string;
+  text: string;
+}
+
+export interface CaseMetricsFramework {
+  primary: {
+    label: string;
+    value: string;
+    tags: string[];
+  };
+  guardrail: {
+    label: string;
+    value: string;
+    valueSuffix: string;
+    valueTags: string[];
+    note: string;
+    noteSuffix: string;
+    noteTags: string[];
+  };
+  diagnostic: {
+    label: string;
+    items: CaseMetricTagged[];
+  };
+}
+
+export interface CaseSecondExperimentVariant {
+  label: string;
+  text: string;
+}
+
+export interface CaseSecondExperiment {
+  label: string;
+  variants: CaseSecondExperimentVariant[];
+  hypothesis: {
+    title: string;
+    text: string;
+  };
+  image: string;
+  screens: CaseExperimentScreen[];
+  metrics: {
+    primaryLabel: string;
+    primaryValue: string;
+    guardrailLabel: string;
+    guardrailValue: string;
+    diagnosticLabel: string;
+    diagnosticItems: string[];
+  };
+}
+
+export interface CasePdfExpertContent {
+  hero: {
+    label: string;
+    title: string;
+    oneLiner: string;
+    placeholder: string;
+    meta: CaseHeroMetaItem[];
+  };
+  problemCards: CaseProblemCard[];
+  research: {
+    label: string;
+    insights: CaseResearchInsight[];
+  };
+  experiment: CaseExperiment;
+  metricsFramework: CaseMetricsFramework;
+  secondExperiment: CaseSecondExperiment;
+  footer: {
+    nextCaseLabel: string;
+    nextCaseSlug: string;
+  };
+}
+
+export interface CaseLearningBlock {
+  title: string;
+  text: string;
+}
+
+export type CaseDecisionRight =
+  | { type: "empty" }
+  | { type: "placeholder"; text: string }
+  | { type: "features"; items: string[]; note: string }
+  | { type: "image"; src: string; fit?: "cover" | "contain" }
+  | { type: "stack"; images: string[] };
+
+export interface CaseDecisionSubItem {
+  lead: string;
+  text: string;
+}
+
+export interface CaseDecisionBlock {
+  kicker: string;
+  question: string;
+  research: string;
+  pullQuote?: string;
+  decision?: string;
+  decisionSubItems?: CaseDecisionSubItem[];
+  right: CaseDecisionRight;
+  background?: string;
+  hidden?: boolean;
+}
+
+export interface CaseMetricCard {
+  label: string;
+  value: string;
+}
+
+export interface CaseMetricsBlock {
+  primaryLabel: string;
+  primaryValue: string;
+  secondaryCards: CaseMetricCard[];
+  diagnosticLabel: string;
+  diagnosticItems: string[];
+}
+
+export interface CaseSyncsanityContent {
+  hero: {
+    title: string;
+    description: string;
+    meta: CaseHeroMetaItem[];
+  };
+  problemCards: CaseProblemCard[];
+  decisions: {
+    decisionLabel: string;
+    items: CaseDecisionBlock[];
+  };
+  metrics: CaseMetricsBlock;
+  keyLearnings: {
+    heading: string;
+    items: CaseLearningBlock[];
+  };
+  footer: {
+    nextCaseLabel: string;
+    nextCaseSlug: string;
+  };
+}
+
+export interface CaseDiploaiDecisionBlock {
+  kicker: string;
+  question: string;
+  decision: string;
+  right: CaseDecisionRight;
+}
+
+export interface CaseDiploaiContent {
+  hero: {
+    title: string;
+    description: string;
+    meta: CaseHeroMetaItem[];
+  };
+  problemCards: CaseProblemCard[];
+  decisions: {
+    decisionLabel: string;
+    items: CaseDiploaiDecisionBlock[];
+  };
+  results: {
+    heading: string;
+    items: string[];
+  };
+  keyLearnings: {
+    heading: string;
+    items: CaseLearningBlock[];
+  };
+  footer: {
+    nextCaseLabel: string;
+    nextCaseSlug: string;
+  };
+}
+
+export interface CaseStatCell {
+  value: string;
+  caption: string;
+}
+
+export interface CaseProblemIdeaRow {
+  problem: string;
+  idea: string;
+}
+
+export interface CaseBehaviorPhase {
+  name: string;
+  caption: string;
+}
+
+export interface CaseHeroBikeContent {
+  hero: {
+    title: string;
+    meta: CaseHeroMetaItem[];
+    intro: string;
+  };
+  challenge: {
+    cards: CaseProblemCard[];
+  };
+  research: {
+    heading: string;
+    stats: CaseStatCell[];
+    chart: {
+      label: string;
+      title: string;
+      maxScale: number;
+      bars: { label: string; value: number }[];
+    };
+    quotes: {
+      label: string;
+      items: string[];
+    };
+  };
+  jtbd: {
+    heading: string;
+    role: string;
+    task: string;
+    context: string;
+    goal: string;
+  };
+  behaviorLoop: {
+    heading: string;
+    phases: CaseBehaviorPhase[];
+  };
+  problemsToIdeas: {
+    heading: string;
+    rows: CaseProblemIdeaRow[];
+  };
+  scope: {
+    heading: string;
+    body: string;
+    diagramSrc: string;
+  };
+  delivered: {
+    heading: string;
+    items: string[];
+  };
+  keyLearnings: {
+    heading: string;
+    items: CaseLearningBlock[];
+  };
+  footer: {
+    nextCaseLabel: string;
+    nextCaseSlug: string;
+  };
+}
+
+export interface CaseTalkStudioContent {
+  hero: {
+    title: string;
+    support: string;
+    meta: CaseHeroMetaItem[];
+  };
+  challenge: {
+    cards: CaseProblemCard[];
+  };
+  stats: {
+    cards: CaseStatCell[];
+  };
+  research: {
+    heading: string;
+    intro: string;
+    blocks: CaseResearchInsight[];
+  };
+  problemsToSolutions: {
+    heading: string;
+    rows: CaseProblemIdeaRow[];
+  };
+  keyLearnings: {
+    heading: string;
+    items: CaseLearningBlock[];
+  };
 }
 
 export interface SiteContent {
@@ -74,61 +344,45 @@ export interface SiteContent {
     description: string;
   };
   nav: {
-    work: string;
-    howIWork: string;
-    about: string;
-    contact: string;
+    home: string;
     langToggle: string;
   };
   sidebar: {
     name: string;
     tagline: string;
   };
+  header: {
+    discuss: string;
+    email: string;
+    emailCopied: string;
+    linkedin: string;
+  };
   hero: {
-    titleSolid: string[];
-    titleOutline: string[];
-    scrollCue: string;
+    tags: string[];
+    title: string;
+    segments: HeroSegment[];
   };
-  introStatement: {
-    lead: string;
-    body: string[];
-  };
-  work: {
-    eyebrow: string;
-    heading: string;
-    intro: string;
-    figmaCta: string;
-    figmaUrl: string;
-    cases: CaseStudy[];
-    more: {
-      eyebrow: string;
-      items: ProjectPreview[];
-    };
-  };
-  whoIWorkBestWith: {
-    eyebrow: string;
-    heading: string;
-    segments: WhoIWorkBestWithSegment[];
-    notForHeading: string;
-    notForBody: string;
-  };
-  howIWork: {
-    eyebrow: string;
-    heading: string;
-    steps: HowIWorkStep[];
+  aboutPage: {
+    comingSoon: string;
   };
   contact: {
-    eyebrow: string;
-    heading: string;
-    subhead: string;
-    emailLabel: string;
     email: string;
+  };
+  projects: {
+    largeCards: ProjectCard[];
+    consultCards: ConsultCard[];
+    moreProjects: MoreProject[];
+  };
+  contactCta: {
+    heading: string;
+    subtext: string;
+    emailLabel: string;
+    emailCopiedLabel: string;
     linkedinLabel: string;
-    linkedinUrl: string;
-    cvLabel: string;
-    cvUrl: string;
   };
-  footer: {
-    note: string;
-  };
+  casePdfExpert: CasePdfExpertContent;
+  caseSyncsanity: CaseSyncsanityContent;
+  caseDiploai: CaseDiploaiContent;
+  caseHeroBike: CaseHeroBikeContent;
+  caseTalkStudio: CaseTalkStudioContent;
 }

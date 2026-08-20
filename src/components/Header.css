@@ -1,0 +1,87 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.75rem clamp(1.5rem, 6vw, 6rem) 1rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+}
+
+.header__side {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header__link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.75;
+  transition: opacity var(--transition-fast);
+}
+
+.header__link:hover,
+.header__link--active {
+  opacity: 1;
+}
+
+.header__link--home {
+  font-weight: 600;
+}
+
+.header__discuss {
+  font-size: 16px;
+  color: #717171;
+}
+
+.header__email,
+.header__linkedin {
+  opacity: 1;
+}
+
+.header__email {
+  font-family: inherit;
+  font-size: inherit;
+  min-width: 3.5ch;
+}
+
+.header__lang {
+  display: none;
+  flex-shrink: 0;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  width: 2.1rem;
+  height: 2.1rem;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast);
+}
+
+.header__lang:hover {
+  opacity: 1;
+  border-color: var(--amber);
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .header__side--right {
+    flex-wrap: wrap;
+  }
+}

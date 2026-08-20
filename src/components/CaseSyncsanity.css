@@ -1,0 +1,847 @@
+.case-sync {
+  min-height: 100vh;
+  background: #000000;
+  font-family: var(--font-heading);
+}
+
+.case-sync__main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-sync__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared gradient-border card technique (matches PDF Expert) */
+.case-sync__gradient-card {
+  position: relative;
+}
+
+.case-sync__gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(224, 214, 209, 0.5) 0%, rgba(224, 214, 209, 0) 50%, rgba(224, 214, 209, 0.2) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Shared placeholder image block */
+.case-sync__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  background: #1a1a1a;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.case-sync__placeholder-text {
+  font-size: 14px;
+  font-style: italic;
+  color: #666666;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* ============================================
+   SECTION 1 — HERO
+   ============================================ */
+
+.case-sync__hero {
+  --hero-card-height: 417px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-sync__hero-card {
+  flex: 75 1 0%;
+  height: var(--hero-card-height);
+  background: #eceae7;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-sync__hero-text {
+  max-width: 80%;
+}
+
+.case-sync__hero-logo-wrap {
+  width: fit-content;
+  background: #000000;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+}
+
+.case-sync__hero-logo {
+  width: 36px;
+  height: auto;
+  display: block;
+}
+
+.case-sync__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  text-transform: none;
+  margin-top: 16px;
+}
+
+.case-sync__hero-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(10, 10, 12, 0.65);
+  margin-top: 24px;
+}
+
+.case-sync__hero-slider {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-sync__compare {
+  position: relative;
+  height: var(--hero-card-height);
+  aspect-ratio: 1104 / 2274;
+  border-radius: 32px;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #000000;
+}
+
+.case-sync__compare-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.case-sync__compare-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ffffff;
+  transform: translateX(-1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.case-sync__compare--intro .case-sync__compare-image--front {
+  transition: clip-path 0.65s ease-in-out;
+}
+
+.case-sync__compare--intro .case-sync__compare-divider {
+  transition: left 0.65s ease-in-out;
+}
+
+.case-sync__compare-handle {
+  pointer-events: auto;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: ew-resize;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  touch-action: none;
+}
+
+.case-sync__compare--intro .case-sync__compare-handle {
+  animation: case-sync-handle-pulse 0.65s ease-in-out 3;
+}
+
+@keyframes case-sync-handle-pulse {
+  0%,
+  100% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+}
+
+.case-sync__compare-arrow {
+  font-size: 8px;
+  line-height: 1;
+  color: #0a0a0c;
+}
+
+.case-sync__hero-meta {
+  flex: 25 1 0%;
+  height: var(--hero-card-height);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-sync__hero-meta-card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #000000;
+  border-radius: 24px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.case-sync__hero-meta-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.case-sync__hero-meta-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+}
+
+.case-sync__hero-meta-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-top: 4px;
+}
+
+/* ============================================
+   SECTION 1 — CONSTRAINTS
+   ============================================ */
+
+.case-sync__problem-cards {
+  display: flex;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-sync__problem-card {
+  flex: 1;
+  background: #9b76f4;
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.case-sync__problem-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #eceae7;
+  color: #9b76f4;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.case-sync__problem-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+/* ============================================
+   SECTION 2 — THE DECISIONS
+   ============================================ */
+
+.case-sync__decisions {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-sync__decisions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-sync__decision {
+  background: #000000;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-sync__decision-columns {
+  display: flex;
+}
+
+.case-sync__decision-left {
+  flex: 1 1 40%;
+  padding: 48px 24px 48px 48px;
+}
+
+.case-sync__decision-kicker {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.case-sync__decision-question {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+  margin-bottom: 24px;
+}
+
+.case-sync__decision-research-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.case-sync__decision-pull-quote {
+  position: relative;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--paper);
+  background: #1a1a1a;
+  padding: 44px 20px 20px;
+  border-radius: 16px;
+  margin: 25px 0 0;
+  overflow: hidden;
+}
+
+.case-sync__decision-pull-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.case-sync__decision-decision {
+  border-left: 3px solid #9b76f4;
+  padding-left: 20px;
+  margin-top: 24px;
+}
+
+.case-sync__decision-decision-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9b76f4;
+  margin-bottom: 12px;
+}
+
+.case-sync__decision-decision-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--paper);
+}
+
+.case-sync__decision--light .case-sync__decision-kicker {
+  color: rgba(10, 10, 12, 0.6);
+}
+
+.case-sync__decision--light .case-sync__decision-question {
+  color: var(--ink);
+}
+
+.case-sync__decision--light .case-sync__decision-research-text {
+  color: rgba(10, 10, 12, 0.7);
+}
+
+.case-sync__decision--light .case-sync__decision-decision {
+  border-left-color: #7c3aed;
+}
+
+.case-sync__decision--light .case-sync__decision-decision-label {
+  color: #7c3aed;
+}
+
+.case-sync__decision--light .case-sync__decision-decision-text {
+  color: var(--ink);
+}
+
+.case-sync__decision-sub-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.case-sync__decision-sub-item-lead {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.case-sync__decision-sub-item-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+}
+
+.case-sync__decision--light .case-sync__decision-sub-item-lead {
+  color: var(--ink);
+}
+
+.case-sync__decision--light .case-sync__decision-sub-item-text {
+  color: rgba(10, 10, 12, 0.7);
+}
+
+.case-sync__decision-right {
+  flex: 0 0 60%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.case-sync__decision-right--image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.case-sync__decision-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-sync__decision-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(155, 118, 244, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--paper);
+}
+
+.case-sync__decision-feature-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.case-sync__decision-features-note {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.case-sync__decision-image {
+  display: block;
+  width: 100%;
+  height: 590px;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ============================================
+   SECTION — METRICS (matches PDF Expert's Experiment 2 pattern)
+   ============================================ */
+
+.case-sync__metrics {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-sync__metrics-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.case-sync__metrics-col-left,
+.case-sync__metrics-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Columns are stretched to equal height by the grid above; let the last
+   card in each column absorb any leftover space instead of leaving a gap. */
+.case-sync__metrics-col-left > *:last-child,
+.case-sync__metrics-col-right > *:last-child {
+  flex: 1 1 auto;
+}
+
+.case-sync__metrics-card {
+  border-radius: 24px;
+  padding: 48px;
+}
+
+.case-sync__metrics-card--primary {
+  background: #9b76f4;
+}
+
+.case-sync__metrics-card--light {
+  background: #e5e2dc;
+}
+
+.case-sync__metrics-card-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 12, 0.55);
+}
+
+.case-sync__metrics-card--primary .case-sync__metrics-card-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.case-sync__metrics-card-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 8px;
+}
+
+.case-sync__metrics-card--primary .case-sync__metrics-card-value {
+  color: #ffffff;
+}
+
+.case-sync__metrics-diagnostic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.case-sync__metrics-diagnostic-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ============================================
+   SECTION 6 — KEY LEARNINGS
+   ============================================ */
+
+.case-sync__key-learnings {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-sync__key-learnings-card {
+  background: #edf0fd;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-sync__key-learnings-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-sync__key-learnings-icon-wrap {
+  width: fit-content;
+  background: #000000;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+}
+
+.case-sync__key-learnings-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.case-sync__key-learnings-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin-top: 12px;
+}
+
+.case-sync__key-learnings-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.case-sync__key-learnings-column {
+  position: relative;
+  padding-left: 40px;
+}
+
+.case-sync__key-learnings-column:first-child {
+  padding-left: 0;
+}
+
+.case-sync__key-learnings-divider {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(10, 10, 12, 0.12);
+}
+
+.case-sync__key-learnings-column:first-child .case-sync__key-learnings-divider {
+  display: none;
+}
+
+.case-sync__key-learnings-divider::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9b76f4;
+}
+
+.case-sync__key-learnings-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+}
+
+.case-sync__key-learnings-column-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 8px;
+}
+
+/* ============================================
+   SECTION 7 — FOOTER CTA
+   ============================================ */
+
+.case-sync__footer {
+  align-items: center;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.case-sync__next-case {
+  font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  color: var(--paper);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.case-sync__next-case:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.case-sync__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.case-sync__contact-action {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-width: 7ch;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.case-sync__contact-action:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .case-sync__hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .case-sync__hero-card {
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-sync__hero-text {
+    max-width: 100%;
+  }
+
+  .case-sync__hero-slider {
+    flex: 1 1 auto;
+  }
+
+  .case-sync__hero-meta {
+    flex-direction: row;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .case-sync__decision-columns {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .case-sync__decision-left,
+  .case-sync__decision-right {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Compare slider needs its full phone visible to be usable — shrink it to a
+     compact size instead of cropping it like the other cases' static images. */
+  .case-sync__hero {
+    --hero-card-height: 280px;
+  }
+
+  .case-sync__hero-meta {
+    flex-direction: column;
+  }
+
+  .case-sync__problem-cards {
+    flex-direction: column;
+  }
+
+  .case-sync__metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-sync__decisions-list {
+    gap: 48px;
+  }
+
+  .case-sync__key-learnings-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-sync__key-learnings-column {
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .case-sync__key-learnings-divider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .case-sync__key-learnings-divider::before {
+    top: -4px;
+    left: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  /* Consistent tight mobile card padding — desktop values (24-48px) waste
+     width on narrow screens. Also fixes .decision-left's asymmetric
+     48/24/48/48 padding (a two-column desktop gap value) that pushed its
+     text off-center once the column stacks full-width. */
+  .case-sync__hero-card,
+  .case-sync__problem-card,
+  .case-sync__decision-left,
+  .case-sync__decision-right,
+  .case-sync__key-learnings-card,
+  .case-sync__metrics-card {
+    padding: 16px;
+  }
+
+  .case-sync__decision-right--image {
+    padding: 0;
+  }
+
+  /* Fixed height + object-fit:cover crops wide screenshots at the sides
+     once the column narrows to mobile width — scale to fit instead. */
+  .case-sync__decision-image {
+    height: auto;
+    object-fit: contain;
+  }
+}

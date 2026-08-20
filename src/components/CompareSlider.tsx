@@ -1,152 +1,106 @@
-import { useCallback, useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "../hooks/useReducedMotion";
-import "./CompareSlider.css";
 
 interface CompareSliderProps {
-  before: string;
-  after: string;
-  beforeLabel: string;
-  afterLabel: string;
-  alt: string;
+  beforeSrc: string;
+  afterSrc: string;
 }
 
-export function CompareSlider({ before, after, beforeLabel, afterLabel, alt }: CompareSliderProps) {
+const INTRO_SEQUENCE = [50, 68, 34, 50];
+const INTRO_STEP_MS = 650;
+const INTRO_START_DELAY_MS = 500;
+
+export function CompareSlider({ beforeSrc, afterSrc }: CompareSliderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const beforeImgRef = useRef<HTMLImageElement>(null);
-  const handleRef = useRef<HTMLDivElement>(null);
   const draggingRef = useRef(false);
-  const hintPlayedRef = useRef(false);
+  const introTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const [percent, setPercent] = useState(50);
+  const [isIntroPlaying, setIsIntroPlaying] = useState(false);
   const reducedMotion = useReducedMotion();
 
-  const applyPosition = useCallback((pct: number) => {
-    const clamped = Math.min(100, Math.max(0, pct));
-    if (beforeImgRef.current) {
-      beforeImgRef.current.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
-    }
-    if (handleRef.current) {
-      handleRef.current.style.left = `${clamped}%`;
-      handleRef.current.setAttribute("aria-valuenow", String(Math.round(clamped)));
-    }
-  }, []);
-
-  const positionFromClientX = useCallback((clientX: number) => {
+  const updateFromClientX = useCallback((clientX: number) => {
     const el = containerRef.current;
-    if (!el) return 50;
+    if (!el) return;
     const rect = el.getBoundingClientRect();
-    return ((clientX - rect.left) / rect.width) * 100;
+    const ratio = ((clientX - rect.left) / rect.width) * 100;
+    setPercent(Math.min(100, Math.max(0, ratio)));
   }, []);
 
   useEffect(() => {
-    applyPosition(50);
-  }, [applyPosition]);
+    if (reducedMotion) return;
+
+    setIsIntroPlaying(true);
+    const timeouts = INTRO_SEQUENCE.map((value, i) =>
+      setTimeout(() => setPercent(value), INTRO_START_DELAY_MS + i * INTRO_STEP_MS),
+    );
+    const stopTimeout = setTimeout(
+      () => setIsIntroPlaying(false),
+      INTRO_START_DELAY_MS + INTRO_SEQUENCE.length * INTRO_STEP_MS,
+    );
+    introTimeoutsRef.current = [...timeouts, stopTimeout];
+
+    return () => {
+      introTimeoutsRef.current.forEach(clearTimeout);
+      introTimeoutsRef.current = [];
+    };
+  }, [reducedMotion]);
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el || hintPlayedRef.current) return;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!draggingRef.current) return;
+      updateFromClientX(e.clientX);
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!draggingRef.current) return;
+      updateFromClientX(e.touches[0].clientX);
+    };
+    const stopDragging = () => {
+      draggingRef.current = false;
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry.isIntersecting || hintPlayedRef.current) return;
-        hintPlayedRef.current = true;
-        observer.disconnect();
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("mouseup", stopDragging);
+    window.addEventListener("touchend", stopDragging);
 
-        if (reducedMotion) {
-          applyPosition(50);
-          return;
-        }
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("mouseup", stopDragging);
+      window.removeEventListener("touchend", stopDragging);
+    };
+  }, [updateFromClientX]);
 
-        const state = { pct: 50 };
-        gsap.timeline()
-          .to(state, {
-            pct: 66,
-            duration: 0.9,
-            ease: "sine.inOut",
-            onUpdate: () => applyPosition(state.pct),
-          })
-          .to(state, {
-            pct: 34,
-            duration: 1.1,
-            ease: "sine.inOut",
-            onUpdate: () => applyPosition(state.pct),
-          })
-          .to(state, {
-            pct: 50,
-            duration: 0.7,
-            ease: "sine.inOut",
-            onUpdate: () => applyPosition(state.pct),
-          });
-      },
-      { threshold: 0.4 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [applyPosition, reducedMotion]);
-
-  const onPointerDown = (e: React.PointerEvent) => {
+  const startDragging = () => {
+    introTimeoutsRef.current.forEach(clearTimeout);
+    introTimeoutsRef.current = [];
+    setIsIntroPlaying(false);
     draggingRef.current = true;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-    applyPosition(positionFromClientX(e.clientX));
-  };
-
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!draggingRef.current) return;
-    applyPosition(positionFromClientX(e.clientX));
-  };
-
-  const onPointerUp = (e: React.PointerEvent) => {
-    draggingRef.current = false;
-    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
-  };
-
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    const current = Number(handleRef.current?.getAttribute("aria-valuenow") ?? 50);
-    if (e.key === "ArrowLeft") {
-      applyPosition(current - 5);
-    } else if (e.key === "ArrowRight") {
-      applyPosition(current + 5);
-    }
   };
 
   return (
     <div
-      className="compare-slider"
+      className={`case-sync__compare${isIntroPlaying ? " case-sync__compare--intro" : ""}`}
       ref={containerRef}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
     >
-      <img className="compare-slider__img compare-slider__img--after" src={after} alt={`${alt} — ${afterLabel.toLowerCase()}`} loading="lazy" />
+      <img src={beforeSrc} alt="" className="case-sync__compare-image case-sync__compare-image--back" />
       <img
-        className="compare-slider__img compare-slider__img--before"
-        ref={beforeImgRef}
-        src={before}
-        alt={`${alt} — ${beforeLabel.toLowerCase()}`}
-        loading="lazy"
+        src={afterSrc}
+        alt=""
+        className="case-sync__compare-image case-sync__compare-image--front"
+        style={{ clipPath: `inset(0 ${100 - percent}% 0 0)` }}
       />
-
-      <span className="compare-slider__tag compare-slider__tag--before">{beforeLabel}</span>
-      <span className="compare-slider__tag compare-slider__tag--after">{afterLabel}</span>
-
-      <div
-        className="compare-slider__handle"
-        ref={handleRef}
-        role="slider"
-        tabIndex={0}
-        aria-label={`Compare ${beforeLabel.toLowerCase()} and ${afterLabel.toLowerCase()} theme`}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={50}
-        onKeyDown={onKeyDown}
-      >
-        <span className="compare-slider__grip" aria-hidden="true">
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-            <path d="M5 1L1 5L5 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M9 1L13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
+      <div className="case-sync__compare-divider" style={{ left: `${percent}%` }}>
+        <button
+          type="button"
+          className="case-sync__compare-handle"
+          onMouseDown={startDragging}
+          onTouchStart={startDragging}
+          aria-label="Drag to compare light and dark theme"
+        >
+          <span className="case-sync__compare-arrow">◄</span>
+          <span className="case-sync__compare-arrow">►</span>
+        </button>
       </div>
     </div>
   );

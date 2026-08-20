@@ -1,0 +1,20 @@
+.case-placeholder {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-placeholder__content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem clamp(1.5rem, 6vw, 6rem);
+}
+
+.case-placeholder__text {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--fs-h3);
+  color: var(--paper);
+}

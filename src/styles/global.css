@@ -13,7 +13,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #1d1d1d;
+  background: #000000;
   color: var(--paper);
   font-family: var(--font-body);
   font-size: var(--fs-body);
@@ -81,13 +81,6 @@ img {
 
 .page {
   position: relative;
-  margin-left: var(--sidebar-w);
-}
-
-@media (max-width: 860px) {
-  .page {
-    margin-left: 0;
-  }
 }
 
 .eyebrow {

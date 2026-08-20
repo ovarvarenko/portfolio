@@ -6,6 +6,12 @@ import { useReducedMotion } from "./useReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
+let lenisInstance: Lenis | null = null;
+
+export function getLenisInstance() {
+  return lenisInstance;
+}
+
 export function useLenis() {
   const reducedMotion = useReducedMotion();
 
@@ -16,6 +22,7 @@ export function useLenis() {
       duration: 1.1,
       smoothWheel: true,
     });
+    lenisInstance = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -28,6 +35,7 @@ export function useLenis() {
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
+      lenisInstance = null;
     };
   }, [reducedMotion]);
 }

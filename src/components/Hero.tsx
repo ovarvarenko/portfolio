@@ -2,13 +2,14 @@ import { lazy, Suspense, useRef } from "react";
 import { useLanguage } from "../hooks/useLanguage";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useIsMobile } from "../hooks/useIsMobile";
-import { Sparkle } from "./Accents";
 import { HeroStaticBackground } from "./HeroStaticBackground";
-import "./Hero.css";
+import styles from "./Hero.module.css";
 
 const HeroShaderBackground = lazy(() =>
   import("./HeroShaderBackground").then((m) => ({ default: m.HeroShaderBackground })),
 );
+
+const TAG_DOT_COLORS = ["#73bfc4", "#d98c3f", "#8da0ce"];
 
 export function Hero() {
   const { content } = useLanguage();
@@ -17,41 +18,52 @@ export function Hero() {
   useScrollReveal(headlineRef, { y: 28, duration: 0.9, start: "top 95%" });
 
   return (
-    <section className="hero" id="top">
-      {isMobile ? (
-        <HeroStaticBackground />
-      ) : (
-        <Suspense fallback={null}>
-          <HeroShaderBackground />
-        </Suspense>
-      )}
-      <div className="hero__left-fade" aria-hidden="true" />
-
-      <div className="hero__content">
-        <div className="hero__sparkles" aria-hidden="true">
-          <Sparkle />
-          <Sparkle />
-          <Sparkle />
-        </div>
-        <h1 className="hero__headline" ref={headlineRef}>
-          <span className="hero__line hero__line--solid hero__line--indent-a">
-            {content.hero.titleSolid[0]}
-          </span>
-          <span className="hero__line hero__line--solid hero__line--indent-b">
-            {content.hero.titleSolid[1]}
-          </span>
-          <span className="hero__line hero__line--outline hero__line--indent-a">
-            {content.hero.titleOutline[0]}
-          </span>
-          <span className="hero__line hero__line--outline hero__line--indent-c">
-            {content.hero.titleOutline[1]}
-          </span>
-        </h1>
+    <section className={styles.heroOuter} id="top">
+      <div className={styles.sideCol}>
+        <span className={styles.sideText}>{content.sidebar.name}</span>
       </div>
 
-      <div className="hero__scroll-cue">
-        <span className="hero__scroll-dot" aria-hidden="true" />
-        <span className="hero__scroll-text">{content.hero.scrollCue}</span>
+      <div className={styles.heroCard}>
+        {isMobile ? (
+          <HeroStaticBackground />
+        ) : (
+          <Suspense fallback={null}>
+            <HeroShaderBackground />
+          </Suspense>
+        )}
+        <div className={styles.overlay} aria-hidden="true" />
+
+        <div className={styles.content}>
+          <ul className={styles.tags} aria-label="Focus areas">
+            {content.hero.tags.map((tag, i) => (
+              <li className={styles.tag} key={tag}>
+                <span
+                  className={styles.tagDot}
+                  style={{ background: TAG_DOT_COLORS[i % TAG_DOT_COLORS.length] }}
+                  aria-hidden="true"
+                />
+                {tag}
+              </li>
+            ))}
+          </ul>
+
+          <h1 className={styles.title} ref={headlineRef}>
+            {content.hero.title}
+          </h1>
+
+          <div className={styles.segments}>
+            {content.hero.segments.map((segment) => (
+              <p className={styles.segment} key={segment.label}>
+                <span className={styles.segmentLabel}>{segment.label}</span>{" "}
+                {segment.description}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.sideCol}>
+        <span className={styles.sideText}>{content.sidebar.tagline}</span>
       </div>
     </section>
   );
