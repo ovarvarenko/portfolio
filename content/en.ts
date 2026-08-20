@@ -784,7 +784,7 @@ export const en: SiteContent = {
     },
     stats: {
       cards: [
-        { value: "83%", caption: "of students used the platform on mobile" },
+        { value: "Retention up", caption: "fewer complaints, fewer drop-offs — the school went back to growing enrollment" },
         { value: "87%", caption: "of students reported improved usability — up from 20% satisfaction before" },
         { value: "−50%", caption: "lesson search time after the redesign" },
       ],
