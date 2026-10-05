@@ -1,0 +1,32 @@
+.cursor-follow-label-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cursor-follow-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  background: #5b6ce6;
+  padding: 8px 14px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-follow-label {
+    transition: opacity 150ms ease-out, transform 150ms ease-out;
+  }
+
+  .cursor-follow-label.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

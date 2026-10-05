@@ -1,12 +1,22 @@
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
 import type { ProjectCard, ConsultCard, MoreProject } from "../../content/types";
+import { projectPopups } from "../data/projectPopups";
+import { ProjectPopupModal } from "./ProjectPopupModal";
+import { CursorFollowLabel } from "./CursorFollowLabel";
 import "./ProjectCards.css";
 
 function LargeCard({ card }: { card: ProjectCard }) {
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
   return (
     <div className="project-card-wrapper">
-      <Link to={`/cases/${card.slug}`} className="project-card project-card--large">
+      <Link
+        to={`/cases/${card.slug}`}
+        className="project-card project-card--large"
+        ref={cardRef}
+      >
         <div className="phoneGrid" aria-hidden="true">
           {card.images.map((src, i) =>
             card.slug === "diploai" ? (
@@ -106,6 +116,7 @@ function LargeCard({ card }: { card: ProjectCard }) {
           )}
         </div>
       </Link>
+      <CursorFollowLabel targetRef={cardRef} text="Open details" />
     </div>
   );
 }
@@ -116,9 +127,15 @@ const RESULT_CARD_LOGOS: Record<string, string> = {
 };
 
 function ResultCard({ card }: { card: ConsultCard }) {
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
   return (
     <div className="project-card-wrapper">
-      <Link to={`/cases/${card.slug}`} className="project-card project-card--result">
+      <Link
+        to={`/cases/${card.slug}`}
+        className="project-card project-card--result"
+        ref={cardRef}
+      >
         <div className="result-card__body">
           <div className="result-card__top-row">
             <img src={RESULT_CARD_LOGOS[card.slug]} alt="" className="result-card__logo" />
@@ -129,14 +146,34 @@ function ResultCard({ card }: { card: ConsultCard }) {
         </div>
         <p className="result-card__context">{card.context}</p>
       </Link>
+      <CursorFollowLabel targetRef={cardRef} text="Open details" />
     </div>
   );
 }
 
-function MoreCard({ project }: { project: MoreProject }) {
+function MoreCard({ project, onOpen }: { project: MoreProject; onOpen?: () => void }) {
+  const isClickable = Boolean(onOpen);
+  const cardRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="project-card-wrapper">
-      <div className="project-card project-card--more">
+      <div
+        className={`project-card project-card--more${isClickable ? " project-card--clickable" : ""}`}
+        onClick={onOpen}
+        role={isClickable ? "button" : undefined}
+        tabIndex={isClickable ? 0 : undefined}
+        ref={cardRef}
+        onKeyDown={
+          isClickable
+            ? (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  onOpen?.();
+                }
+              }
+            : undefined
+        }
+      >
         <div className="project-card__image-wrap">
           <img src={project.image} alt="" className="project-card__image" />
         </div>
@@ -155,6 +192,7 @@ function MoreCard({ project }: { project: MoreProject }) {
           </ul>
         </div>
       </div>
+      {isClickable && <CursorFollowLabel targetRef={cardRef} text="Open details" />}
     </div>
   );
 }
@@ -162,6 +200,8 @@ function MoreCard({ project }: { project: MoreProject }) {
 export function ProjectCards() {
   const { content } = useLanguage();
   const { largeCards, consultCards, moreProjects } = content.projects;
+  const [openPopupSlug, setOpenPopupSlug] = useState<string | null>(null);
+  const openPopup = openPopupSlug ? projectPopups[openPopupSlug] : null;
 
   return (
     <section className="project-cards" aria-label="Selected work">
@@ -179,9 +219,17 @@ export function ProjectCards() {
 
       <div className="project-cards__grid">
         {moreProjects.map((project) => (
-          <MoreCard project={project} key={project.slug} />
+          <MoreCard
+            project={project}
+            key={project.slug}
+            onOpen={projectPopups[project.slug] ? () => setOpenPopupSlug(project.slug) : undefined}
+          />
         ))}
       </div>
+
+      {openPopup && (
+        <ProjectPopupModal content={openPopup} onClose={() => setOpenPopupSlug(null)} />
+      )}
     </section>
   );
 }

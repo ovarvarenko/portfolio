@@ -372,6 +372,23 @@
   height: 100%;
 }
 
+.project-card--more.project-card--clickable {
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .project-card--more.project-card--clickable:hover {
+    transform: scale(1.008);
+    box-shadow:
+      inset 0 0 64px 3px rgba(87, 110, 240, 0.15),
+      0 4px 84px 6px rgba(87, 110, 240, 0.15);
+  }
+
+  .project-card--more.project-card--clickable:hover::before {
+    background: linear-gradient(135deg, rgba(87, 110, 240, 0.5) 0%, rgba(87, 110, 240, 0) 50%, rgba(87, 110, 240, 0.2) 100%);
+  }
+}
+
 .project-card--more .project-card__image-wrap {
   aspect-ratio: 16 / 10;
   overflow: hidden;

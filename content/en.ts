@@ -22,17 +22,16 @@ export const en: SiteContent = {
     linkedin: "LinkedIn ↗",
   },
   hero: {
-    tags: ["0→1", "Strategy", "Growth"],
-    title: "Product Designer for early founders and growth-stage teams",
+    tags: ["End-to-end", "Strategy", "Growth"],
+    title: "AI-native Product Designer with a Computer Science degree",
     segments: [
       {
-        label: "Idea → MVP:",
-        description: "discovery, scope, product decisions before code.",
+        label: "Complex products:",
+        description: "multi-role platforms, dashboards and design systems that scale.",
       },
       {
-        label: "Funded products:",
-        description:
-          "onboarding for activation, retention mechanics, monetization tied to real metrics.",
+        label: "Growth:",
+        description: "onboarding, paywalls and experiments tied to real metrics.",
       },
     ],
   },
