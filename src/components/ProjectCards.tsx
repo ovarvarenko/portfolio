@@ -192,7 +192,11 @@ function MoreCard({ project, onOpen }: { project: MoreProject; onOpen?: () => vo
           </ul>
         </div>
       </div>
-      {isClickable && <CursorFollowLabel targetRef={cardRef} text="Open details" />}
+      {isClickable ? (
+        <CursorFollowLabel targetRef={cardRef} text="Open details" />
+      ) : (
+        <CursorFollowLabel targetRef={cardRef} text="Oops… coming soon" variant="disabled" />
+      )}
     </div>
   );
 }

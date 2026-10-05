@@ -5,13 +5,14 @@ import "./CursorFollowLabel.css";
 interface CursorFollowLabelProps {
   targetRef: RefObject<HTMLElement | null>;
   text: string;
+  variant?: "default" | "disabled";
 }
 
 const OFFSET_X = 16;
 const OFFSET_Y = 16;
 const LERP = 0.25;
 
-export function CursorFollowLabel({ targetRef, text }: CursorFollowLabelProps) {
+export function CursorFollowLabel({ targetRef, text, variant = "default" }: CursorFollowLabelProps) {
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -85,7 +86,10 @@ export function CursorFollowLabel({ targetRef, text }: CursorFollowLabelProps) {
 
   return createPortal(
     <div className="cursor-follow-label-wrapper" ref={wrapperRef} aria-hidden="true">
-      <div className={`cursor-follow-label${active ? " is-active" : ""}`} ref={labelRef}>
+      <div
+        className={`cursor-follow-label${variant === "disabled" ? " cursor-follow-label--disabled" : ""}${active ? " is-active" : ""}`}
+        ref={labelRef}
+      >
         {text}
       </div>
     </div>,
