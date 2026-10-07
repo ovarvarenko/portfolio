@@ -103,11 +103,52 @@
   margin-top: 24px;
 }
 
-.case-pdfx__hero-image {
+/* iPhone frame drawn in CSS — the screenshot itself is frameless */
+.case-pdfx__hero-phone {
+  position: relative;
+  flex: none;
   width: 250px;
-  height: auto;
-  border-radius: 24px;
   margin-top: 180px;
+  padding: 7px;
+  border-radius: 42px;
+  background: #0b0b0c;
+  box-shadow:
+    0 0 0 2px #535b70,
+    0 0 0 3px #262a36;
+  isolation: isolate;
+}
+
+/* Dynamic Island */
+.case-pdfx__hero-phone::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28%;
+  height: 20px;
+  border-radius: 999px;
+  background: #000;
+  z-index: 1;
+}
+
+/* Side buttons: action + volume on the left, power on the right */
+.case-pdfx__hero-phone::after {
+  content: "";
+  position: absolute;
+  inset: 0 -5px;
+  z-index: -1;
+  background:
+    linear-gradient(#4a5266, #4a5266) left 0 top 17% / 3px 5% no-repeat,
+    linear-gradient(#4a5266, #4a5266) left 0 top 25% / 3px 9% no-repeat,
+    linear-gradient(#4a5266, #4a5266) left 0 top 36% / 3px 9% no-repeat,
+    linear-gradient(#4a5266, #4a5266) right 0 top 28% / 3px 14% no-repeat;
+}
+
+.case-pdfx__hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 35px;
   display: block;
 }
 
@@ -793,9 +834,20 @@
     padding: 0;
   }
 
-  .case-pdfx__hero-image {
+  .case-pdfx__hero-phone {
     width: 190px;
     margin-top: 0;
+    padding: 5px;
+    border-radius: 32px;
+  }
+
+  .case-pdfx__hero-phone::before {
+    top: 10px;
+    height: 15px;
+  }
+
+  .case-pdfx__hero-image {
+    border-radius: 27px;
   }
 
   .case-pdfx__problem-cards {

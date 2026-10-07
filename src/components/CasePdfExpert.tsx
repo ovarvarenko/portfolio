@@ -95,11 +95,13 @@ export function CasePdfExpert() {
               <p className="case-pdfx__hero-description">{c.hero.oneLiner}</p>
             </div>
             <div className="case-pdfx__hero-right">
-              <img
-                src="/images/cases/pdfexpert-home-hero.png"
-                alt=""
-                className="case-pdfx__hero-image"
-              />
+              <div className="case-pdfx__hero-phone">
+                <img
+                  src="/images/cases/pdfexpert-home-hero.png"
+                  alt=""
+                  className="case-pdfx__hero-image"
+                />
+              </div>
             </div>
           </div>
         </div>

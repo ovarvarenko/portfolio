@@ -471,7 +471,7 @@
 .ss-icon--groceries {
   left: calc(8% - 80px);
   top: 18%;
-  width: 198.9px;
+  width: 211.7px; /* 531px source at the same scale as before (499px → 198.9px) */
   transform: rotate(7deg);
 }
 

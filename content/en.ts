@@ -603,7 +603,7 @@ export const en: SiteContent = {
           kicker: "Daily workflow",
           question: "How does daily review actually work?",
           decision:
-            "Alerts arrive pre-sorted — Include, Exclude, Recommend Include, Recommend Exclude — so the team's attention goes straight to the \"Recommend\" and \"Not define\" cases instead of the full alert feed. \"Start review\" moves through them one at a time, Previous/Next, until the queue's clear.",
+            "Alerts arrive pre-sorted — Include, Exclude, Recommend Include, Recommend Exclude — so the team's attention goes straight to the \"Recommend\" and \"Not defined\" cases instead of the full alert feed. \"Start review\" moves through them one at a time, Previous/Next, until the queue's clear.",
           right: { type: "image", src: "/images/cases/diploai/reports-default-all.png" },
         },
         {
