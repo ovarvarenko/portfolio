@@ -285,6 +285,41 @@ export function CasePdfExpert() {
         </div>
       </section>
 
+      {/* My part & status */}
+      {c.myPart && (
+        <section className="case-pdfx__research">
+          <div className="case-pdfx__research-card">
+            <div className="case-pdfx__my-part">
+              <span className="case-pdfx__my-part-label">{c.myPart.label}</span>
+              <p className="case-pdfx__my-part-text">{c.myPart.text}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Key learnings */}
+      {c.keyLearnings && (
+        <section className="case-pdfx__key-learnings">
+          <div className="case-pdfx__key-learnings-card">
+            <div className="case-pdfx__key-learnings-header">
+              <div className="case-pdfx__key-learnings-icon-wrap">
+                <img src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-pdfx__key-learnings-icon" />
+              </div>
+              <h3 className="case-pdfx__key-learnings-heading">{c.keyLearnings.heading}</h3>
+            </div>
+            <div className="case-pdfx__key-learnings-columns">
+              {c.keyLearnings.items.map((item) => (
+                <div className="case-pdfx__key-learnings-column" key={item.title}>
+                  <span className="case-pdfx__key-learnings-divider" aria-hidden="true" />
+                  <h4 className="case-pdfx__key-learnings-column-title">{item.title}</h4>
+                  <p className="case-pdfx__key-learnings-column-text">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <main className="case-pdfx__main">
         {/* Section 8 — Footer CTA */}
         <section className="case-pdfx__section case-pdfx__footer">

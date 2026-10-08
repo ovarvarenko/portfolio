@@ -136,6 +136,14 @@ export interface CasePdfExpertContent {
   experiment: CaseExperiment;
   metricsFramework: CaseMetricsFramework;
   secondExperiment: CaseSecondExperiment;
+  myPart?: {
+    label: string;
+    text: string;
+  };
+  keyLearnings?: {
+    heading: string;
+    items: CaseLearningBlock[];
+  };
   footer: {
     nextCaseLabel: string;
     nextCaseSlug: string;
@@ -196,6 +204,10 @@ export interface CaseSyncsanityContent {
     items: CaseDecisionBlock[];
   };
   metrics: CaseMetricsBlock;
+  outcome: {
+    heading: string;
+    items: string[];
+  };
   keyLearnings: {
     heading: string;
     items: CaseLearningBlock[];

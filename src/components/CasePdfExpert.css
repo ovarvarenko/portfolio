@@ -718,6 +718,134 @@
 }
 
 /* ============================================
+   MY PART & STATUS
+   ============================================ */
+
+.case-pdfx__my-part {
+  padding: 48px;
+  max-width: 62rem;
+}
+
+.case-pdfx__my-part-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.case-pdfx__my-part-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============================================
+   KEY LEARNINGS (same block as SyncSanity / DiploAI)
+   ============================================ */
+
+.case-pdfx__key-learnings {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-pdfx__key-learnings-card {
+  position: relative;
+  background: #edf0fd;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-pdfx__key-learnings-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-pdfx__key-learnings-icon-wrap {
+  width: fit-content;
+  background: #000000;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+}
+
+.case-pdfx__key-learnings-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.case-pdfx__key-learnings-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+  margin-top: 12px;
+}
+
+.case-pdfx__key-learnings-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.case-pdfx__key-learnings-column {
+  position: relative;
+  padding-left: 40px;
+}
+
+.case-pdfx__key-learnings-column:first-child {
+  padding-left: 0;
+}
+
+.case-pdfx__key-learnings-divider {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(10, 10, 12, 0.12);
+}
+
+.case-pdfx__key-learnings-column:first-child .case-pdfx__key-learnings-divider {
+  display: none;
+}
+
+.case-pdfx__key-learnings-divider::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #576ef0;
+}
+
+.case-pdfx__key-learnings-column-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: none;
+}
+
+.case-pdfx__key-learnings-column-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(10, 10, 12, 0.6);
+  margin-top: 8px;
+}
+
+/* ============================================
    SECTION 9 — FOOTER CTA
    ============================================ */
 
@@ -813,6 +941,30 @@
 }
 
 @media (max-width: 768px) {
+  .case-pdfx__key-learnings-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-pdfx__key-learnings-column {
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .case-pdfx__key-learnings-divider {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .case-pdfx__key-learnings-divider::before {
+    top: -4px;
+    left: 50%;
+  }
+
   .case-pdfx__hero-card {
     height: auto;
   }
@@ -903,7 +1055,9 @@
   .case-pdfx__research-left,
   .case-pdfx__experiment-card,
   .case-pdfx__experiment-variant,
-  .case-pdfx__metrics-card {
+  .case-pdfx__metrics-card,
+  .case-pdfx__my-part,
+  .case-pdfx__key-learnings-card {
     padding: 16px;
   }
 }

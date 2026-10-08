@@ -584,6 +584,60 @@
 }
 
 /* ============================================
+   OUTCOME (same block as DiploAI Results)
+   ============================================ */
+
+.case-sync__outcome {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 3rem) 40px;
+}
+
+.case-sync__outcome-outer {
+  background: #000000;
+  border-radius: 24px;
+  padding: 48px;
+  overflow: hidden;
+}
+
+.case-sync__outcome-heading {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+  text-transform: none;
+  margin-bottom: 24px;
+}
+
+.case-sync__outcome-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.case-sync__outcome-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.case-sync__outcome-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.case-sync__outcome-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 16px;
+}
+
+/* ============================================
    SECTION 6 — KEY LEARNINGS
    ============================================ */
 
@@ -795,6 +849,10 @@
     gap: 48px;
   }
 
+  .case-sync__outcome-cards {
+    flex-direction: column;
+  }
+
   .case-sync__key-learnings-columns {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -830,6 +888,8 @@
   .case-sync__decision-left,
   .case-sync__decision-right,
   .case-sync__key-learnings-card,
+  .case-sync__outcome-outer,
+  .case-sync__outcome-card,
   .case-sync__metrics-card {
     padding: 16px;
   }

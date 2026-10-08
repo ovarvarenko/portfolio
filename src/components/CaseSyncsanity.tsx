@@ -198,6 +198,25 @@ export function CaseSyncsanity() {
 
       <MetricsBlock metrics={c.metrics} />
 
+      {/* Outcome */}
+      <section className="case-sync__outcome">
+        <div className="case-sync__outcome-outer case-sync__gradient-card">
+          <h3 className="case-sync__outcome-heading">{c.outcome.heading}</h3>
+          <div className="case-sync__outcome-cards">
+            {c.outcome.items.map((item, i) => (
+              <div className="case-sync__outcome-card" key={item}>
+                <img
+                  src={`/images/decorative/syncsanity/competitive-${i + 1}.png`}
+                  alt=""
+                  className="case-sync__outcome-icon"
+                />
+                <p className="case-sync__outcome-text">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Section 6 — Key learnings */}
       <section className="case-sync__key-learnings">
         <div className="case-sync__key-learnings-card case-sync__gradient-card">

@@ -23,15 +23,15 @@ export const en: SiteContent = {
   },
   hero: {
     tags: ["End-to-end", "Strategy", "Growth"],
-    title: "AI-native Product Designer with a Computer Science degree",
+    title: "AI-native Senior Product Designer with a Computer Science degree",
     segments: [
-      {
-        label: "Complex products:",
-        description: "multi-role platforms, dashboards and design systems that scale.",
-      },
       {
         label: "Growth:",
         description: "onboarding, paywalls and experiments tied to real metrics.",
+      },
+      {
+        label: "Complex products:",
+        description: "multi-role platforms, dashboards and design systems that scale.",
       },
     ],
   },
@@ -131,8 +131,8 @@ export const en: SiteContent = {
         description:
           "End-to-end redesign and rebrand of an AI-powered wellbeing app — fitness, mindfulness, nutrition — built for daily engagement and long-term retention.",
         results: [
-          "Fully rebranded app shipped to production — improved retention through clearer flows and better onboarding",
-          "Positive user feedback, supported the app's App Store growth",
+          "+20\u2060–\u206030% free-to-trial conversion after the onboarding redesign",
+          "Fully rebranded app shipped to production",
         ],
         tags: ["B2C", "Wellbeing", "Rebrand"],
       },
@@ -326,6 +326,27 @@ export const en: SiteContent = {
         ],
       },
     },
+    myPart: {
+      label: "My part & status",
+      text: "I owned the research synthesis, the JTBD hypotheses and the design of both experiments, from intent question to personalized Home and paywall. The experiments were handed off to the team for launch.",
+    },
+    keyLearnings: {
+      heading: "Key Learnings",
+      items: [
+        {
+          title: "Ask about the job, not the job title",
+          text: "Profession told us nothing about what people came to do. One intent question did.",
+        },
+        {
+          title: "Test the question before the personalization",
+          text: "Variant B changed only the question, so a drop in completion couldn't hide behind the bigger redesign.",
+        },
+        {
+          title: "Every conversion test needs a guardrail",
+          text: "More trials mean nothing if trial-to-paid drops.",
+        },
+      ],
+    },
     footer: {
       nextCaseLabel: "Next case: SyncSanity →",
       nextCaseSlug: "syncsanity",
@@ -333,7 +354,7 @@ export const en: SiteContent = {
   },
   caseSyncsanity: {
     hero: {
-      title: "From vague idea to fundable MVP in 12 weeks",
+      title: "From vague idea to build-ready MVP in 12 weeks",
       description:
         "A founder had a vision for a household management app — but the space already had 50+ competitors. I led product strategy and UX research to find the gap, validate demand, and scope an MVP that a solo developer could actually build.",
       meta: [
@@ -527,6 +548,14 @@ export const en: SiteContent = {
         "Streak completion rate, week over week",
         "Achievement unlock rate across the 9 achievements",
         "Feature/area usage — which areas partners actually used",
+      ],
+    },
+    outcome: {
+      heading: "Outcome",
+      items: [
+        "Found the gap in a market of 50+ apps: couples 25\u2060–\u206040 who share a home, backed by 49 survey responses and a review of 12+ competitors",
+        "Cut the scope to 3 core features, with 12 moved to the backlog, so a solo developer could build it",
+        "Handed off full designs, branding, retention and monetization logic, and the metrics framework for development",
       ],
     },
     keyLearnings: {
