@@ -486,6 +486,7 @@
   flex-shrink: 0;
   width: 24px;
   height: 24px;
+  object-fit: contain;
 }
 
 .case-sync__decision-features-note {
@@ -628,6 +629,7 @@
   flex-shrink: 0;
   width: 24px;
   height: 24px;
+  object-fit: contain;
 }
 
 .case-sync__outcome-text {
