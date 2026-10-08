@@ -30,6 +30,29 @@ export interface MoreProject {
   description: string;
   results: string[];
   tags: string[];
+  /** Hide the card from the More Work grid without deleting its data. */
+  hidden?: boolean;
+}
+
+export interface SplitProjectSection {
+  label: string;
+  text?: string;
+  items?: string[];
+}
+
+export interface SplitProject {
+  slug: string;
+  title: string;
+  tags: string[];
+  description: string;
+  /** Single highlighted result line. */
+  result?: string;
+  /** Optional labelled sections (role, what I did, …). */
+  sections?: SplitProjectSection[];
+  image: string;
+  /** Text on the right, image on the left. */
+  reverse?: boolean;
+  hidden?: boolean;
 }
 
 export interface CaseHeroMetaItem {
@@ -383,6 +406,7 @@ export interface SiteContent {
   projects: {
     largeCards: ProjectCard[];
     consultCards: ConsultCard[];
+    splitProjects: SplitProject[];
     moreProjects: MoreProject[];
   };
   contactCta: {

@@ -1,0 +1,149 @@
+/* Wide split block: text panel (~40%) + image (~60%).
+   Panels reuse .project-card (background, border, radius, shadow);
+   gap matches the other homepage card grids. */
+
+.split-project {
+  display: grid;
+  border-radius: 16px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 18px;
+}
+
+.split-project--reverse {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+}
+
+.split-project--reverse .split-project__text-wrap {
+  order: 2;
+}
+
+.split-project--clickable {
+  cursor: pointer;
+}
+
+.split-project--clickable:focus-visible {
+  outline: 1px solid var(--paper);
+  outline-offset: 4px;
+}
+
+/* Panel layout mirrors .project-card--result; type styles come from the
+   shared result-card__* classes. Hover state for the clickable block is
+   shared with the More Work cards in ProjectCards.css. */
+.project-card.split-project__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 100%;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.split-project__top-row {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.split-project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.split-project__tag {
+  padding: 6px 12px;
+}
+
+.split-project__section {
+  margin-top: 24px;
+}
+
+.split-project__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-dim);
+  margin-bottom: 8px;
+}
+
+.split-project__body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.split-project__list {
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.split-project__list li::marker {
+  color: var(--muted-dim);
+}
+
+.split-project__list li + li {
+  margin-top: 4px;
+}
+
+.split-project__image-wrap {
+  min-height: 0;
+}
+
+/* The box takes the image's own ratio (2262×1128), so the row is never
+   shorter than the picture; if the text runs taller, the box stretches and
+   object-fit: cover crops instead of distorting. */
+.project-card.split-project__image-box {
+  width: 100%;
+  min-height: 100%;
+  aspect-ratio: 2262 / 1128;
+}
+
+.split-project__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+@media (max-width: 1024px) {
+  .split-project,
+  .split-project--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  /* Image on top, text below — in both directions. */
+  .split-project__image-wrap {
+    order: 1;
+  }
+
+  .split-project__text-wrap,
+  .split-project--reverse .split-project__text-wrap {
+    order: 2;
+  }
+
+  .project-card.split-project__image-box {
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .split-project__image {
+    position: static;
+    height: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .project-card.split-project__text {
+    padding: 16px;
+  }
+}

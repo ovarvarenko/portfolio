@@ -111,21 +111,29 @@ export const en: SiteContent = {
           "Validated a two-sided bike-rental marketplace through research and defined a 26-screen MVP, mentoring a junior designer through UI.",
       },
     ],
-    moreProjects: [
+    splitProjects: [
       {
         slug: "logistics",
-        image: "/work/more/logistics-image.jpg",
         title: "Logistics Platform",
-        description:
-          "Web platform for cargo tracking, route planning and delivery monitoring for an international manufacturing company.",
-        results: [
-          "New flows shipped into a live product — zero disruption to dispatchers' daily operations",
-          "Usability improved through structure alone, keeping the existing design system intact",
-        ],
         tags: ["B2B SaaS", "Logistics", "Under NDA"],
+        description: "Cargo tracking and delivery monitoring for an international manufacturer.",
+        result: "New flows shipped into a live product with zero disruption to dispatchers.",
+        image: "/images/work/logistics.png",
       },
       {
+        slug: "ehs-platform",
+        title: "EHS Platform",
+        tags: ["Enterprise", "Design System", "Under NDA"],
+        description: "Solo product designer on a fragmented enterprise EHS compliance platform.",
+        result: "One unified design system replaced years of inconsistent iterations.",
+        image: "/images/work/ehs.png",
+        reverse: true,
+      },
+    ],
+    moreProjects: [
+      {
         slug: "eleviate",
+        hidden: true,
         image: "/work/more/eleviate-image.jpg",
         title: "Eleviate",
         description:
@@ -137,19 +145,8 @@ export const en: SiteContent = {
         tags: ["B2C", "Wellbeing", "Rebrand"],
       },
       {
-        slug: "ehs-platform",
-        image: "/work/more/ehs-image.jpg",
-        title: "EHS Platform",
-        description:
-          "Solo designer rebuilding a fragmented enterprise EHS platform — unified design system, microinteractions and UI states across complex compliance workflows.",
-        results: [
-          "One unified design system replaced years of inconsistent iterations — typography, components, interaction logic",
-          "Every UI state and microinteraction defined — dynamic content stopped breaking",
-        ],
-        tags: ["Enterprise", "Design System", "Under NDA"],
-      },
-      {
         slug: "bo-cocktails",
+        hidden: true,
         image: "/work/more/bo-cocktails-image.jpg",
         title: "BO Cocktails",
         description:

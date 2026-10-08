@@ -5,6 +5,7 @@ import type { ProjectCard, ConsultCard, MoreProject } from "../../content/types"
 import { projectPopups } from "../data/projectPopups";
 import { ProjectPopupModal } from "./ProjectPopupModal";
 import { CursorFollowLabel } from "./CursorFollowLabel";
+import { SplitProjectBlock } from "./SplitProjectBlock";
 import "./ProjectCards.css";
 
 function LargeCard({ card }: { card: ProjectCard }) {
@@ -203,7 +204,8 @@ function MoreCard({ project, onOpen }: { project: MoreProject; onOpen?: () => vo
 
 export function ProjectCards() {
   const { content } = useLanguage();
-  const { largeCards, consultCards, moreProjects } = content.projects;
+  const { largeCards, consultCards, splitProjects, moreProjects } = content.projects;
+  const visibleMoreProjects = moreProjects.filter((project) => !project.hidden);
   const [openPopupSlug, setOpenPopupSlug] = useState<string | null>(null);
   const openPopup = openPopupSlug ? projectPopups[openPopupSlug] : null;
 
@@ -221,15 +223,27 @@ export function ProjectCards() {
         ))}
       </div>
 
-      <div className="project-cards__grid">
-        {moreProjects.map((project) => (
-          <MoreCard
+      {splitProjects
+        .filter((project) => !project.hidden)
+        .map((project) => (
+          <SplitProjectBlock
             project={project}
             key={project.slug}
             onOpen={projectPopups[project.slug] ? () => setOpenPopupSlug(project.slug) : undefined}
           />
         ))}
-      </div>
+
+      {visibleMoreProjects.length > 0 && (
+        <div className="project-cards__grid">
+          {visibleMoreProjects.map((project) => (
+            <MoreCard
+              project={project}
+              key={project.slug}
+              onOpen={projectPopups[project.slug] ? () => setOpenPopupSlug(project.slug) : undefined}
+            />
+          ))}
+        </div>
+      )}
 
       {openPopup && (
         <ProjectPopupModal content={openPopup} onClose={() => setOpenPopupSlug(null)} />

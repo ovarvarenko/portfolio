@@ -113,21 +113,11 @@ export const ua: SiteContent = {
           "Валідувала двосторонній маркетплейс оренди велосипедів через дослідження та визначила MVP на 26 екранів, менторячи молодшого дизайнера з UI.",
       },
     ],
+    splitProjects: en.projects.splitProjects,
     moreProjects: [
       {
-        slug: "logistics",
-        image: "/work/more/logistics-image.jpg",
-        title: "Логістична платформа",
-        description:
-          "Веб-платформа для трекінгу вантажів, планування маршрутів та моніторингу доставок для міжнародної виробничої компанії.",
-        results: [
-          "Нові флоу впроваджені в live-продукт — без жодного збою в щоденній роботі диспетчерів",
-          "Юзабіліті покращено лише за рахунок структури, зі збереженням наявної дизайн-системи",
-        ],
-        tags: ["B2B SaaS", "Логістика", "Під NDA"],
-      },
-      {
         slug: "eleviate",
+        hidden: true,
         image: "/work/more/eleviate-image.jpg",
         title: "Eleviate",
         description:
@@ -139,19 +129,8 @@ export const ua: SiteContent = {
         tags: ["B2C", "Wellbeing", "Ребрендинг"],
       },
       {
-        slug: "ehs-platform",
-        image: "/work/more/ehs-image.jpg",
-        title: "Платформа EHS",
-        description:
-          "Єдина дизайнерка, що перебудувала фрагментовану enterprise-платформу EHS — уніфікована дизайн-система, мікроінтеракції та UI-стани для складних комплаєнс-флоу.",
-        results: [
-          "Єдина дизайн-система замінила роки непослідовних ітерацій — типографіка, компоненти, логіка взаємодії",
-          "Визначено кожен UI-стан і мікроінтеракцію — динамічний контент перестав ламати інтерфейс",
-        ],
-        tags: ["Enterprise", "Дизайн-система", "Під NDA"],
-      },
-      {
         slug: "bo-cocktails",
+        hidden: true,
         image: "/work/more/bo-cocktails-image.jpg",
         title: "BO Cocktails",
         description:
