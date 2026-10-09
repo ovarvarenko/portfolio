@@ -96,7 +96,7 @@ export function CaseTalkStudio() {
         <div className="case-ts__key-learnings-card case-ts__gradient-card">
           <div className="case-ts__key-learnings-header">
             <div className="case-ts__key-learnings-icon-wrap">
-              <img src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-ts__key-learnings-icon" />
+              <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-ts__key-learnings-icon" />
             </div>
             <h3 className="case-ts__key-learnings-heading">{c.keyLearnings.heading}</h3>
           </div>

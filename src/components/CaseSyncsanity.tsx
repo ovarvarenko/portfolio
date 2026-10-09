@@ -53,7 +53,7 @@ function DecisionCard({ item, decisionLabel }: { item: CaseDecisionBlock; decisi
             <div className="case-sync__decision-features">
               {item.right.items.map((feature, i) => (
                 <div className="case-sync__decision-feature" key={feature}>
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={`/images/decorative/syncsanity/competitive-${i + 1}.png`}
                     alt=""
                     className="case-sync__decision-feature-icon"
@@ -65,7 +65,7 @@ function DecisionCard({ item, decisionLabel }: { item: CaseDecisionBlock; decisi
             </div>
           )}
           {item.right.type === "image" && (
-            <img
+            <img loading="lazy" decoding="async"
               src={item.right.src}
               alt=""
               className="case-sync__decision-image"
@@ -157,8 +157,8 @@ export function CaseSyncsanity() {
 
         <div className="case-sync__hero-slider">
           <CompareSlider
-            beforeSrc="/images/cases/syncsanity-home-dark.png"
-            afterSrc="/images/cases/syncsanity-home-light.png"
+            beforeSrc="/images/cases/syncsanity-home-dark.webp"
+            afterSrc="/images/cases/syncsanity-home-light.webp"
           />
         </div>
 
@@ -205,7 +205,7 @@ export function CaseSyncsanity() {
           <div className="case-sync__outcome-cards">
             {c.outcome.items.map((item, i) => (
               <div className="case-sync__outcome-card" key={item}>
-                <img
+                <img loading="lazy" decoding="async"
                   src={`/images/decorative/syncsanity/competitive-${i + 1}.png`}
                   alt=""
                   className="case-sync__outcome-icon"
@@ -222,7 +222,7 @@ export function CaseSyncsanity() {
         <div className="case-sync__key-learnings-card case-sync__gradient-card">
           <div className="case-sync__key-learnings-header">
             <div className="case-sync__key-learnings-icon-wrap">
-              <img src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-sync__key-learnings-icon" />
+              <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-sync__key-learnings-icon" />
             </div>
             <h3 className="case-sync__key-learnings-heading">{c.keyLearnings.heading}</h3>
           </div>

@@ -52,9 +52,9 @@ export const ua: SiteContent = {
           "Підвищила конверсію в trial для PDF Expert від Readdle, замінивши онбординг за професією на JTBD-сегментацію. Персоналізований показ фіч, контекстні paywall'и та флоу сканування файлів, що рекомендує інструменти на основі реальних документів користувача. Кожна гіпотеза прив'язана до CR-to-trial з trial-to-paid як guardrail-метрикою.",
         tag: "Growth Design · Онбординг · Paywall",
         images: [
-          "/images/cases/pdfexpert-home.png",
-          "/images/cases/pdfexpert-paywall1.png",
-          "/images/cases/pdfexpert-paywall2.png",
+          "/images/cases/pdfexpert-home.webp",
+          "/images/cases/pdfexpert-paywall1.webp",
+          "/images/cases/pdfexpert-paywall2.webp",
         ],
         pills: ["JTBD-онбординг", "Персоналізований paywall", "Рекомендації на основі файлів"],
         problem:
@@ -69,9 +69,9 @@ export const ua: SiteContent = {
           "Домашній застосунок для пар 25–40, які гублять побутові справи між чатами й нотатками. Валідовано на 50+ інтерв'ю: 84% несуть нерівне психологічне навантаження, 90% згадали недавню суперечку через хатні справи. Спроєктувала адаптивний рушій завдань, синхронізацію з партнером, тижневі streak'и та управління домом за зонами. North Star метрика: обидва партнери активно користуються застосунком.",
         tag: "Ідея → MVP · CustDev · Механіки retention",
         images: [
-          "/images/cases/syncsanity-home.png",
-          "/images/cases/syncsanity-insights.png",
-          "/images/cases/syncsanity-lists.png",
+          "/images/cases/syncsanity-home.webp",
+          "/images/cases/syncsanity-insights.webp",
+          "/images/cases/syncsanity-lists.webp",
         ],
         pills: ["Ідея → MVP", "CustDev", "Механіки retention"],
         problem:
@@ -85,7 +85,7 @@ export const ua: SiteContent = {
         summary:
           "Automotive teams track regulatory changes manually — up to 1,000 updates a day, across dozens of global sources. Solo-designed the MVP from discovery to delivery.",
         tag: "0→1 MVP · Solo design · Regulatory intelligence",
-        images: ["/images/cases/diploai/home.png"],
+        images: ["/images/cases/diploai/home.webp"],
         pills: ["0→1 MVP", "AI + human review", "B2B SaaS"],
         problem:
           "Automotive teams track regulatory changes manually — up to 1,000 updates a day, across dozens of global sources. No prior technical expertise assumed, but the data is dense, and slow analysis means missed compliance windows.",
@@ -224,11 +224,11 @@ export const ua: SiteContent = {
           text: "Якщо персоналізувати контент Home-екрана під обрану мету користувача, користувачі в сегменті без trial почнуть використовувати потрібний інструмент — це збільшить CR у trial порівняно з контролем. Для сегменту з trial зростуть кліки по підібраних інструментах.",
         },
       ],
-      image: "/images/cases/pdfexpert-hypothesis-before-after.png",
+      image: "/images/cases/pdfexpert-hypothesis-before-after.webp",
       screens: [
-        { label: "JTBD", image: "/images/cases/pdfexpert-jtbd.png" },
-        { label: "Home", image: "/images/cases/pdfexpert-experiment-home.png" },
-        { label: "Paywall", image: "/images/cases/pdfexpert-paywall-experiment.png" },
+        { label: "JTBD", image: "/images/cases/pdfexpert-jtbd.webp" },
+        { label: "Home", image: "/images/cases/pdfexpert-experiment-home.webp" },
+        { label: "Paywall", image: "/images/cases/pdfexpert-paywall-experiment.webp" },
       ],
     },
     metricsFramework: {

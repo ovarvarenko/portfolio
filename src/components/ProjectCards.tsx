@@ -21,18 +21,18 @@ function LargeCard({ card }: { card: ProjectCard }) {
         <div className="phoneGrid" aria-hidden="true">
           {card.images.map((src, i) =>
             card.slug === "diploai" ? (
-              <img key={src} src={src} alt="" className="phoneGrid__phone--fill" />
+              <img loading="lazy" decoding="async" key={src} src={src} alt="" className="phoneGrid__phone--fill" />
             ) : (
-              <img key={src} src={src} alt="" className={`phoneGrid__phone phoneGrid__phone--${i}`} />
+              <img loading="lazy" decoding="async" key={src} src={src} alt="" className={`phoneGrid__phone phoneGrid__phone--${i}`} />
             )
           )}
         </div>
         <div className="phoneGridMobile">
-          <img
+          <img loading="lazy" decoding="async"
             src={
               card.slug === "diploai"
-                ? "/images/cases/diploai/mobile.png"
-                : `/images/cases/${card.slug}-mobile.png`
+                ? "/images/cases/diploai/mobile.webp"
+                : `/images/cases/${card.slug}-mobile.webp`
             }
             alt=""
           />
@@ -43,39 +43,39 @@ function LargeCard({ card }: { card: ProjectCard }) {
               {/* Decorative icons — project-specific */}
               {card.slug === "pdf-expert" && (
                 <>
-                  <img src="/images/decorative/pdf-expert/icon-fill-sign.png" alt="" className="pdfx-icon pdfx-icon--fillsign" />
-                  <img src="/images/decorative/pdf-expert/icon-annotate.png" alt="" className="pdfx-icon pdfx-icon--annotate" />
-                  <img src="/images/decorative/pdf-expert/pdf-image.png" alt="" className="pdfx-icon pdfx-icon--pdfimg" />
-                  <img src="/images/decorative/pdf-expert/convert-files.png" alt="" className="pdfx-icon pdfx-icon--convert" />
-                  <img src="/images/decorative/pdf-expert/AI.png" alt="" className="pdfx-icon pdfx-icon--ai-mid" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/icon-fill-sign.png" alt="" className="pdfx-icon pdfx-icon--fillsign" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/icon-annotate.png" alt="" className="pdfx-icon pdfx-icon--annotate" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/pdf-image.png" alt="" className="pdfx-icon pdfx-icon--pdfimg" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/convert-files.png" alt="" className="pdfx-icon pdfx-icon--convert" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/AI.png" alt="" className="pdfx-icon pdfx-icon--ai-mid" />
                 </>
               )}
               {card.slug === "syncsanity" && (
                 <>
-                  <img src="/images/decorative/syncsanity/Buying%20grosseries.png" alt="" className="pdfx-icon ss-icon--groceries" />
-                  <img src="/images/decorative/syncsanity/Mark%20done.png" alt="" className="pdfx-icon ss-icon--markdone" />
-                  <img src="/images/decorative/syncsanity/Laundry.png" alt="" className="pdfx-icon ss-icon--laundry" />
-                  <img src="/images/decorative/syncsanity/Streak.png" alt="" className="pdfx-icon ss-icon--streak" />
-                  <img src="/images/decorative/syncsanity/Achievment.png" alt="" className="pdfx-icon ss-icon--achievement" />
-                  <img src="/images/decorative/syncsanity/Plate.png" alt="" className="pdfx-icon ss-icon--plate" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/syncsanity/Buying%20grosseries.png" alt="" className="pdfx-icon ss-icon--groceries" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/syncsanity/Mark%20done.png" alt="" className="pdfx-icon ss-icon--markdone" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/syncsanity/Laundry.png" alt="" className="pdfx-icon ss-icon--laundry" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/syncsanity/Streak.png" alt="" className="pdfx-icon ss-icon--streak" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/syncsanity/Achievment.png" alt="" className="pdfx-icon ss-icon--achievement" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/syncsanity/Plate.png" alt="" className="pdfx-icon ss-icon--plate" />
                 </>
               )}
               {card.slug === "diploai" && (
                 <>
-                  <img src="/images/decorative/diploai/icon-analyzed.png" alt="" className="pdfx-icon diplo-icon--analyzed" />
-                  <img src="/images/decorative/diploai/icon-relevant.png" alt="" className="pdfx-icon diplo-icon--relevant" />
-                  <img src="/images/decorative/diploai/icon-irrelevant.png" alt="" className="pdfx-icon diplo-icon--irrelevant" />
-                  <img src="/images/decorative/diploai/icon-validation.png" alt="" className="pdfx-icon diplo-icon--validation" />
-                  <img src="/images/decorative/diploai/tag-include.png" alt="" className="pdfx-icon diplo-icon--tag-include" />
-                  <img src="/images/decorative/diploai/tag-federal.png" alt="" className="pdfx-icon diplo-icon--tag-federal" />
-                  <img src="/images/decorative/diploai/tag-exclude.png" alt="" className="pdfx-icon diplo-icon--tag-exclude" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/icon-analyzed.png" alt="" className="pdfx-icon diplo-icon--analyzed" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/icon-relevant.png" alt="" className="pdfx-icon diplo-icon--relevant" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/icon-irrelevant.png" alt="" className="pdfx-icon diplo-icon--irrelevant" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/icon-validation.png" alt="" className="pdfx-icon diplo-icon--validation" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/tag-include.png" alt="" className="pdfx-icon diplo-icon--tag-include" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/tag-federal.png" alt="" className="pdfx-icon diplo-icon--tag-federal" />
+                  <img loading="lazy" decoding="async" src="/images/decorative/diploai/tag-exclude.png" alt="" className="pdfx-icon diplo-icon--tag-exclude" />
                 </>
               )}
 
               {/* Title + logo — moves from center to top-left on hover */}
               <div className="pdfx-title">
                 <h3 className="pdfx-title__text">{card.title}</h3>
-                <img
+                <img loading="lazy" decoding="async"
                   src={
                     card.slug === "syncsanity"
                       ? "/images/decorative/syncsanity/syncsanity-logo.png"
@@ -139,7 +139,7 @@ function ResultCard({ card }: { card: ConsultCard }) {
       >
         <div className="result-card__body">
           <div className="result-card__top-row">
-            <img src={RESULT_CARD_LOGOS[card.slug]} alt="" className="result-card__logo" />
+            <img loading="lazy" decoding="async" src={RESULT_CARD_LOGOS[card.slug]} alt="" className="result-card__logo" />
             <span className="result-card__tag">{card.tag}</span>
           </div>
           <p className="result-card__problem">{card.problem}</p>
@@ -176,7 +176,7 @@ function MoreCard({ project, onOpen }: { project: MoreProject; onOpen?: () => vo
         }
       >
         <div className="project-card__image-wrap">
-          <img src={project.image} alt="" className="project-card__image" />
+          <img loading="lazy" decoding="async" src={project.image} alt="" className="project-card__image" />
         </div>
         <div className="project-card__content">
           <h3 className="project-card__title">{project.title}</h3>

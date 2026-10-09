@@ -50,9 +50,9 @@ export const en: SiteContent = {
           "Increased trial conversion for Readdle's PDF Expert by replacing profession-based onboarding with JTBD segmentation. Personalized feature showcase, context-aware paywalls, and a file-scanning flow that recommends tools based on user's actual documents. Every hypothesis tied to CR-to-trial with trial-to-paid as guardrail.",
         tag: "Growth Design · Onboarding · Paywall",
         images: [
-          "/images/cases/pdfexpert-home.png",
-          "/images/cases/pdfexpert-paywall1.png",
-          "/images/cases/pdfexpert-paywall2.png",
+          "/images/cases/pdfexpert-home.webp",
+          "/images/cases/pdfexpert-paywall1.webp",
+          "/images/cases/pdfexpert-paywall2.webp",
         ],
         pills: ["JTBD onboarding", "Personalized paywall", "File-based recommendations"],
         problem:
@@ -67,9 +67,9 @@ export const en: SiteContent = {
           "Household app for couples 25–40 who lose track of chores across chat apps and mental lists. Validated with 50+ interviews: 84% carry unequal mental load, 90% recall a recent chore argument. Designed adaptive task engine, partner-aware sync, weekly streaks, and area-based home management. North Star metric: both partners actively using the app.",
         tag: "Raw idea → MVP · CustDev · Retention mechanics",
         images: [
-          "/images/cases/syncsanity-home.png",
-          "/images/cases/syncsanity-insights.png",
-          "/images/cases/syncsanity-lists.png",
+          "/images/cases/syncsanity-home.webp",
+          "/images/cases/syncsanity-insights.webp",
+          "/images/cases/syncsanity-lists.webp",
         ],
         pills: ["Raw idea → MVP", "CustDev", "Retention mechanics"],
         problem:
@@ -83,7 +83,7 @@ export const en: SiteContent = {
         summary:
           "Automotive teams track regulatory changes manually — up to 1,000 updates a day, across dozens of global sources. Solo-designed the MVP from discovery to delivery.",
         tag: "0→1 MVP · Solo design · Regulatory intelligence",
-        images: ["/images/cases/diploai/home.png"],
+        images: ["/images/cases/diploai/home.webp"],
         pills: ["0→1 MVP", "AI + human review", "B2B SaaS"],
         problem:
           "Automotive teams track regulatory changes manually — up to 1,000 updates a day, across dozens of global sources. No prior technical expertise assumed, but the data is dense, and slow analysis means missed compliance windows.",
@@ -118,7 +118,7 @@ export const en: SiteContent = {
         tags: ["B2B SaaS", "Logistics", "Under NDA"],
         description: "Cargo tracking and delivery monitoring for an international manufacturer.",
         result: "New flows shipped into a live product with zero disruption to dispatchers.",
-        image: "/images/work/logistics.png",
+        image: "/images/work/logistics.webp",
       },
       {
         slug: "ehs-platform",
@@ -126,7 +126,7 @@ export const en: SiteContent = {
         tags: ["Enterprise", "Design System", "Under NDA"],
         description: "Solo product designer on a fragmented enterprise EHS compliance platform.",
         result: "One unified design system replaced years of inconsistent iterations.",
-        image: "/images/work/ehs.png",
+        image: "/images/work/ehs.webp",
         reverse: true,
       },
     ],
@@ -240,11 +240,11 @@ export const en: SiteContent = {
           text: "If we personalize Home screen content for the user's selected goal, users in the non-trial segment will start using the right tool — increasing CR to trial vs control. For the trial segment, clicks on matched tools will increase.",
         },
       ],
-      image: "/images/cases/pdfexpert-hypothesis-before-after.png",
+      image: "/images/cases/pdfexpert-hypothesis-before-after.webp",
       screens: [
-        { label: "JTBD", image: "/images/cases/pdfexpert-jtbd.png" },
-        { label: "Paywall", image: "/images/cases/pdfexpert-paywall-experiment.png" },
-        { label: "Home", image: "/images/cases/pdfexpert-experiment-home.png" },
+        { label: "JTBD", image: "/images/cases/pdfexpert-jtbd.webp" },
+        { label: "Paywall", image: "/images/cases/pdfexpert-paywall-experiment.webp" },
+        { label: "Home", image: "/images/cases/pdfexpert-experiment-home.webp" },
       ],
     },
     metricsFramework: {
@@ -304,11 +304,11 @@ export const en: SiteContent = {
         title: "Hypothesis",
         text: "If a user uploads a document during onboarding and we recommend tools based on file content, they'll see the product's value against their real need before the paywall — increasing CR to trial relative to the current flow.",
       },
-      image: "/images/cases/pdfexpert-hypothesis2-before-after.png",
+      image: "/images/cases/pdfexpert-hypothesis2-before-after.webp",
       screens: [
-        { label: "Scanning", image: "/images/cases/pdfexpert-scanning.png" },
-        { label: "Paywall", image: "/images/cases/pdfexpert-paywall-after-scan.png" },
-        { label: "Home", image: "/images/cases/pdfexpert-home-after-scan.png" },
+        { label: "Scanning", image: "/images/cases/pdfexpert-scanning.webp" },
+        { label: "Paywall", image: "/images/cases/pdfexpert-paywall-after-scan.webp" },
+        { label: "Home", image: "/images/cases/pdfexpert-home-after-scan.webp" },
       ],
       metrics: {
         primaryLabel: "Primary metric",
@@ -386,7 +386,7 @@ export const en: SiteContent = {
             "When my partner and I are both exhausted after work and one of us has to remember, assign, and follow up on every household task, I want the mental load to be shared and visible, so I can stop feeling like the manager of our relationship.",
           decision:
             "Own the couples segment. Smaller addressable market at launch, but a sharper value prop than competing for everyone. Every product decision downstream — tone, features, onboarding — is shaped by this choice.",
-          right: { type: "image", src: "/images/cases/syncsanity-research.png" },
+          right: { type: "image", src: "/images/cases/syncsanity-research.webp" },
         },
         {
           kicker: "Scope",
@@ -422,7 +422,7 @@ export const en: SiteContent = {
           ],
           right: {
             type: "image",
-            src: "/images/cases/syncsanity-onboarding.png",
+            src: "/images/cases/syncsanity-onboarding.webp",
           },
           background: "#EDFDF9",
         },
@@ -435,7 +435,7 @@ export const en: SiteContent = {
             "Instead of asking users to configure everything from scratch (setup fatigue was the #1 drop-off point in research), the app ships with defaults — then adapts. Skip a task repeatedly, and it backs off. Always hand it to your partner, and the system notices. Every task stays fully editable — change the frequency, reassign it, or turn it off — but the starting point removes the blank-page problem entirely.",
           right: {
             type: "image",
-            src: "/images/cases/syncsanity-mechanics.png",
+            src: "/images/cases/syncsanity-mechanics.webp",
           },
           background: "#F5F1FF",
         },
@@ -448,7 +448,7 @@ export const en: SiteContent = {
             "When a request shows up that consistently, explicitly, across nearly every interview, it earns a place in the MVP even without deeper interpretation — the signal is already as strong as it gets. Groceries connects into the shared Lists system: items get added the moment either partner notices something running low, and the app flags when a household is close to running out of a basic.",
           right: {
             type: "image",
-            src: "/images/cases/syncsanity-groceries.png",
+            src: "/images/cases/syncsanity-groceries.webp",
           },
           background: "#FDF6ED",
         },
@@ -461,7 +461,7 @@ export const en: SiteContent = {
             "Built an adaptive task distribution engine. Every task has a built-in difficulty weight (e.g. cleaning the bathroom scores higher than wiping a counter). The app distributes tasks evenly between partners based on these weights. Partners can adjust difficulty levels and reassign tasks to fit their household. The system tracks who picks up what first, balancing the load over time so neither partner becomes the permanent \"manager.\"",
           right: {
             type: "image",
-            src: "/images/cases/syncsanity-fairness.png",
+            src: "/images/cases/syncsanity-fairness.webp",
           },
           background: "#EDF8FD",
         },
@@ -474,7 +474,7 @@ export const en: SiteContent = {
             "Weekly streaks: complete all home areas by Sunday and the streak continues. Miss a day? No problem — the cycle is weekly, matching how real households run. Tasks are daily, but the measurement is weekly — giving flexibility without guilt. Retention metric for each user: at least 3 tasks completed per week. For groceries: items added to the shared list that week. 9 launch achievements reward streak milestones, new areas, and consistency.",
           right: {
             type: "image",
-            src: "/images/cases/syncsanity-retention.png",
+            src: "/images/cases/syncsanity-retention.webp",
           },
           background: "#FDF0ED",
         },
@@ -499,7 +499,7 @@ export const en: SiteContent = {
               text: "Solo stays free forever as the entry point. Partner features are the paid layer — and watching whether solo users stick around tells us if the model needs adjusting.",
             },
           ],
-          right: { type: "image", src: "/images/cases/syncsanity-paywall.png" },
+          right: { type: "image", src: "/images/cases/syncsanity-paywall.webp" },
           background: "#F3FDED",
         },
         {
@@ -613,8 +613,8 @@ export const en: SiteContent = {
           right: {
             type: "stack",
             images: [
-              "/images/cases/diploai/product-list.png",
-              "/images/cases/diploai/keyword-lists.png",
+              "/images/cases/diploai/product-list.webp",
+              "/images/cases/diploai/keyword-lists.webp",
             ],
           },
         },
@@ -623,21 +623,21 @@ export const en: SiteContent = {
           question: "How does a user trust an AI categorization?",
           decision:
             "Every categorized alert shows its reasoning inline — which keyword matched, which list it came from, and why that led to Include, Exclude, or a \"Recommend\" state when confidence isn't full. The category is never just a label; it's a claim with evidence attached.",
-          right: { type: "image", src: "/images/cases/diploai/report-exclude.png" },
+          right: { type: "image", src: "/images/cases/diploai/report-exclude.webp" },
         },
         {
           kicker: "Daily workflow",
           question: "How does daily review actually work?",
           decision:
             "Alerts arrive pre-sorted — Include, Exclude, Recommend Include, Recommend Exclude — so the team's attention goes straight to the \"Recommend\" and \"Not defined\" cases instead of the full alert feed. \"Start review\" moves through them one at a time, Previous/Next, until the queue's clear.",
-          right: { type: "image", src: "/images/cases/diploai/reports-default-all.png" },
+          right: { type: "image", src: "/images/cases/diploai/reports-default-all.webp" },
         },
         {
           kicker: "Progress & metrics",
           question: "What does progress look like?",
           decision:
             "The dashboard leads with four numbers — alerts analyzed, relevant, irrelevant, and validation required — plus a running history by date. Validation required is the number that mattered most: fewer of those, at the same accuracy, meant the categorization was earning trust.",
-          right: { type: "image", src: "/images/cases/diploai/reports-dashboard.png" },
+          right: { type: "image", src: "/images/cases/diploai/reports-dashboard.webp" },
         },
       ],
     },
@@ -757,7 +757,7 @@ export const en: SiteContent = {
       heading: "What I scoped",
       body:
         "26 screens across web and mobile — home, browse and filter, bicycle detail, a 4-step booking flow, saved bikes, bookings, and profile. Enough to prove the core loop — browse, verify trust, commit — without over-building for a first-time founder's budget and timeline.",
-      diagramSrc: "/images/cases/hero-bike/ia-diagram.png",
+      diagramSrc: "/images/cases/hero-bike/ia-diagram.webp",
     },
     delivered: {
       heading: "What was delivered",

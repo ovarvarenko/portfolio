@@ -176,7 +176,7 @@ export function CaseHeroBike() {
           <h2 className="case-hb__section-heading">{c.scope.heading}</h2>
           <p className="case-hb__scope-body">{c.scope.body}</p>
           <div className="case-hb__scope-diagram-wrap">
-            <img src={c.scope.diagramSrc} alt="" className="case-hb__scope-diagram" />
+            <img loading="lazy" decoding="async" src={c.scope.diagramSrc} alt="" className="case-hb__scope-diagram" />
           </div>
         </div>
       </section>
@@ -201,7 +201,7 @@ export function CaseHeroBike() {
         <div className="case-hb__key-learnings-card case-hb__gradient-card">
           <div className="case-hb__key-learnings-header">
             <div className="case-hb__key-learnings-icon-wrap">
-              <img src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-hb__key-learnings-icon" />
+              <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-hb__key-learnings-icon" />
             </div>
             <h3 className="case-hb__key-learnings-heading">{c.keyLearnings.heading}</h3>
           </div>

@@ -40,7 +40,7 @@ export function CaseDiploai() {
         </div>
 
         <div className="case-diplo__hero-image-wrap">
-          <img src="/images/cases/diploai/hero.png" alt="" className="case-diplo__hero-image" />
+          <img src="/images/cases/diploai/hero.webp" alt="" className="case-diplo__hero-image" />
         </div>
 
         <div className="case-diplo__hero-meta">
@@ -89,7 +89,7 @@ export function CaseDiploai() {
                     </div>
                   )}
                   {item.right.type === "image" && (
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={item.right.src}
                       alt=""
                       className="case-diplo__decision-image"
@@ -99,7 +99,7 @@ export function CaseDiploai() {
                   {item.right.type === "stack" && (
                     <div className="case-diplo__decision-stack">
                       {item.right.images.map((src) => (
-                        <img key={src} src={src} alt="" className="case-diplo__decision-stack-image" />
+                        <img loading="lazy" decoding="async" key={src} src={src} alt="" className="case-diplo__decision-stack-image" />
                       ))}
                     </div>
                   )}
@@ -117,7 +117,7 @@ export function CaseDiploai() {
           <div className="case-diplo__results-cards">
             {c.results.items.map((item, i) => (
               <div className="case-diplo__results-card" key={item}>
-                <img
+                <img loading="lazy" decoding="async"
                   src={`/images/decorative/syncsanity/competitive-${i + 1}.png`}
                   alt=""
                   className="case-diplo__results-icon"
@@ -134,7 +134,7 @@ export function CaseDiploai() {
         <div className="case-diplo__key-learnings-card case-diplo__gradient-card">
           <div className="case-diplo__key-learnings-header">
             <div className="case-diplo__key-learnings-icon-wrap">
-              <img src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-diplo__key-learnings-icon" />
+              <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-diplo__key-learnings-icon" />
             </div>
             <h3 className="case-diplo__key-learnings-heading">{c.keyLearnings.heading}</h3>
           </div>

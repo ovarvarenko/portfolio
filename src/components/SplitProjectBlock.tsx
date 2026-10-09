@@ -73,7 +73,7 @@ export function SplitProjectBlock({
 
         <div className="project-card-wrapper split-project__image-wrap">
           <div className="project-card split-project__image-box">
-            <img src={project.image} alt="" className="split-project__image" />
+            <img loading="lazy" decoding="async" src={project.image} alt="" className="split-project__image" />
           </div>
         </div>
       </article>

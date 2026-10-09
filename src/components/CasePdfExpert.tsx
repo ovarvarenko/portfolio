@@ -15,7 +15,7 @@ function ScreenGallery({ screens }: { screens: { label: string; image: string }[
   return (
     <div className="case-pdfx__screen-gallery">
       <div className="case-pdfx__screen-gallery-main">
-        <img src={screens[active].image} alt={screens[active].label} className="case-pdfx__screen-gallery-main-image" />
+        <img loading="lazy" decoding="async" src={screens[active].image} alt={screens[active].label} className="case-pdfx__screen-gallery-main-image" />
       </div>
       <div className="case-pdfx__screen-gallery-covers">
         {screens.map((screen, i) => (
@@ -25,7 +25,7 @@ function ScreenGallery({ screens }: { screens: { label: string; image: string }[
             className={`case-pdfx__screen-gallery-cover${i === active ? " case-pdfx__screen-gallery-cover--active" : ""}`}
             onClick={() => setActive(i)}
           >
-            <img src={screen.image} alt="" className="case-pdfx__screen-gallery-cover-image" />
+            <img loading="lazy" decoding="async" src={screen.image} alt="" className="case-pdfx__screen-gallery-cover-image" />
             <span className="case-pdfx__screen-gallery-cover-label">{screen.label}</span>
           </button>
         ))}
@@ -97,7 +97,7 @@ export function CasePdfExpert() {
             <div className="case-pdfx__hero-right">
               <div className="case-pdfx__hero-phone">
                 <img
-                  src="/images/cases/pdfexpert-home-hero.png"
+                  src="/images/cases/pdfexpert-home-hero.webp"
                   alt=""
                   className="case-pdfx__hero-image"
                 />
@@ -147,8 +147,8 @@ export function CasePdfExpert() {
               </div>
             </div>
             <div className="case-pdfx__research-right">
-              <img
-                src="/images/cases/pdfexpert-research.png"
+              <img loading="lazy" decoding="async"
+                src="/images/cases/pdfexpert-research.webp"
                 alt=""
                 className="case-pdfx__research-image"
               />
@@ -180,7 +180,7 @@ export function CasePdfExpert() {
             ))}
           </div>
 
-          <img src={c.experiment.image} alt="" className="case-pdfx__experiment-image" />
+          <img loading="lazy" decoding="async" src={c.experiment.image} alt="" className="case-pdfx__experiment-image" />
 
           <ScreenGallery screens={c.experiment.screens} />
         </div>
@@ -251,7 +251,7 @@ export function CasePdfExpert() {
             </div>
           </div>
 
-          <img src={c.secondExperiment.image} alt="" className="case-pdfx__experiment-image" />
+          <img loading="lazy" decoding="async" src={c.secondExperiment.image} alt="" className="case-pdfx__experiment-image" />
 
           <ScreenGallery screens={c.secondExperiment.screens} />
         </div>
@@ -303,7 +303,7 @@ export function CasePdfExpert() {
           <div className="case-pdfx__key-learnings-card">
             <div className="case-pdfx__key-learnings-header">
               <div className="case-pdfx__key-learnings-icon-wrap">
-                <img src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-pdfx__key-learnings-icon" />
+                <img loading="lazy" decoding="async" src="/images/decorative/pdf-expert/metric.svg" alt="" className="case-pdfx__key-learnings-icon" />
               </div>
               <h3 className="case-pdfx__key-learnings-heading">{c.keyLearnings.heading}</h3>
             </div>
