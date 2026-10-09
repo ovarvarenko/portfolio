@@ -1,12 +1,31 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
 import { Header } from "./Header";
 import "./CaseTalkStudio.css";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/oleksandra-varvarenko/";
 
 const HERO_META_ICONS = ["role", "team", "metric"];
 
 export function CaseTalkStudio() {
   const { content } = useLanguage();
   const c = content.caseTalkStudio;
+  const [copied, setCopied] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const handleEmailClick = async () => {
+    await navigator.clipboard.writeText(content.contact.email);
+    setCopied(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setCopied(false), 1500);
+  };
 
   return (
     <div className="case-ts">
@@ -109,6 +128,26 @@ export function CaseTalkStudio() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Section 7 — Footer */}
+      <section className="case-ts__footer">
+        <Link to={c.footer.nextCaseHref} className="case-ts__next-case">
+          {c.footer.nextCaseLabel}
+        </Link>
+        <div className="case-ts__contact-actions">
+          <button type="button" className="case-ts__contact-action" onClick={handleEmailClick}>
+            {copied ? content.contactCta.emailCopiedLabel : content.contactCta.emailLabel}
+          </button>
+          <a
+            className="case-ts__contact-action"
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {content.contactCta.linkedinLabel}
+          </a>
         </div>
       </section>
     </div>

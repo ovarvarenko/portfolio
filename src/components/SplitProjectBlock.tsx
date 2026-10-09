@@ -17,6 +17,7 @@ export function SplitProjectBlock({
     <>
       <article
         ref={blockRef}
+        id={project.slug}
         className={`split-project${project.reverse ? " split-project--reverse" : ""}${
           isClickable ? " split-project--clickable" : ""
         }`}

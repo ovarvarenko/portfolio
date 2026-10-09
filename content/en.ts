@@ -875,5 +875,9 @@ export const en: SiteContent = {
         },
       ],
     },
+    footer: {
+      nextCaseLabel: "Next case: Logistics →",
+      nextCaseHref: "/#logistics",
+    },
   },
 };

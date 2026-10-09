@@ -460,6 +460,52 @@
    RESPONSIVE
    ============================================ */
 
+/* Footer — same pattern as the other case pages (next case + contact). */
+.case-ts__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 100px clamp(0.75rem, 3vw, 3rem);
+}
+
+.case-ts__next-case {
+  font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  color: var(--paper);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.case-ts__next-case:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.case-ts__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.case-ts__contact-action {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-width: 7ch;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.case-ts__contact-action:hover {
+  border-color: var(--ts-accent);
+  color: var(--ts-accent);
+}
+
 @media (max-width: 1024px) {
   .case-ts__hero {
     flex-direction: column;

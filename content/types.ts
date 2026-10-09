@@ -370,6 +370,10 @@ export interface CaseTalkStudioContent {
     heading: string;
     items: CaseLearningBlock[];
   };
+  footer: {
+    nextCaseLabel: string;
+    nextCaseHref: string;
+  };
 }
 
 export interface SiteContent {
