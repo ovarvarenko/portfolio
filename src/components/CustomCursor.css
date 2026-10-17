@@ -1,0 +1,56 @@
+/* The wrapper must not form a stacking context, or the circle's blend mode
+   would only blend inside the cursor instead of with the page. */
+.custom-cursor {
+  display: contents;
+}
+
+/* Above project popups (10000) and the cursor-follow label (10001). */
+.custom-cursor__layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10002;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.custom-cursor.is-visible .custom-cursor__layer {
+  opacity: 1;
+}
+
+/* Difference blending keeps the white circle and tail visible on light cards. */
+.custom-cursor__layer--blend,
+.custom-cursor__trail {
+  mix-blend-mode: difference;
+}
+
+.custom-cursor__trail {
+  will-change: auto;
+}
+
+/* The layer sits at 0×0 on the pointer; the circle centers on that point. */
+.custom-cursor__circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border: 1.5px solid transparent;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.9;
+  transform: translate(-50%, -50%);
+  transition: width 250ms ease-out, height 250ms ease-out, background-color 250ms ease-out,
+    border-color 250ms ease-out, opacity 250ms ease-out;
+}
+
+.custom-cursor__circle.is-hovering {
+  width: 44px;
+  height: 44px;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 1;
+}

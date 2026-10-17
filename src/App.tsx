@@ -11,6 +11,7 @@ import { CaseDiploai } from "./components/CaseDiploai";
 import { CaseHeroBike } from "./components/CaseHeroBike";
 import { CaseTalkStudio } from "./components/CaseTalkStudio";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { CustomCursor } from "./components/CustomCursor";
 import { useLenis } from "./hooks/useLenis";
 
 function HomePage() {
@@ -33,6 +34,7 @@ function App() {
     <>
       <ScrollToTop />
       <LoadingOverlay />
+      <CustomCursor />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

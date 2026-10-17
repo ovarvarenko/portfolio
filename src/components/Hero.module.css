@@ -1,7 +1,9 @@
 .heroOuter {
   display: flex;
   align-items: stretch;
-  padding: 0.5rem 0 clamp(3rem, 6vw, 5rem);
+  /* No bottom padding: the first section's margin sets the gap below the hero,
+     so it matches the gap between sections. */
+  padding: 0.5rem 0 0;
 }
 
 .sideCol {

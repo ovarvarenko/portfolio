@@ -6,6 +6,7 @@ import { projectPopups } from "../data/projectPopups";
 import { ProjectPopupModal } from "./ProjectPopupModal";
 import { CursorFollowLabel } from "./CursorFollowLabel";
 import { SplitProjectBlock } from "./SplitProjectBlock";
+import { homeSections, type HomeSectionCard } from "../data/homeSections";
 import "./ProjectCards.css";
 
 function LargeCard({ card }: { card: ProjectCard }) {
@@ -209,29 +210,73 @@ export function ProjectCards() {
   const [openPopupSlug, setOpenPopupSlug] = useState<string | null>(null);
   const openPopup = openPopupSlug ? projectPopups[openPopupSlug] : null;
 
+  const renderCard = (card: HomeSectionCard) => {
+    if (card.kind === "large") {
+      const data = largeCards.find((c) => c.slug === card.slug);
+      return data ? <LargeCard card={data} key={data.slug} /> : null;
+    }
+    if (card.kind === "result") {
+      const data = consultCards.find((c) => c.slug === card.slug);
+      return data ? <ResultCard card={data} key={data.slug} /> : null;
+    }
+    const data = splitProjects.find((p) => p.slug === card.slug && !p.hidden);
+    return data ? (
+      <SplitProjectBlock
+        project={data}
+        key={data.slug}
+        onOpen={projectPopups[data.slug] ? () => setOpenPopupSlug(data.slug) : undefined}
+      />
+    ) : null;
+  };
+
+  // Consecutive result cards share a two-column row; large and split cards
+  // are full width on their own.
+  const renderSectionBody = (cards: HomeSectionCard[]) => {
+    const blocks: React.ReactNode[] = [];
+    let row: React.ReactNode[] = [];
+    const flushRow = () => {
+      if (row.length) {
+        blocks.push(
+          <div className="project-cards__row" key={`row-${blocks.length}`}>
+            {row}
+          </div>,
+        );
+        row = [];
+      }
+    };
+    for (const card of cards) {
+      const node = renderCard(card);
+      if (!node) continue;
+      if (card.kind === "result") {
+        row.push(node);
+      } else {
+        flushRow();
+        blocks.push(node);
+      }
+    }
+    flushRow();
+    return blocks;
+  };
+
   return (
-    <section className="project-cards" aria-label="Selected work">
-      <div className="project-cards__stack">
-        {largeCards.map((card) => (
-          <LargeCard card={card} key={card.slug} />
-        ))}
-      </div>
-
-      <div className="project-cards__row">
-        {consultCards.map((card) => (
-          <ResultCard card={card} key={card.slug} />
-        ))}
-      </div>
-
-      {splitProjects
-        .filter((project) => !project.hidden)
-        .map((project) => (
-          <SplitProjectBlock
-            project={project}
-            key={project.slug}
-            onOpen={projectPopups[project.slug] ? () => setOpenPopupSlug(project.slug) : undefined}
-          />
-        ))}
+    <div className="project-cards">
+      {homeSections.map((section) => {
+        const body = renderSectionBody(section.cards);
+        if (!body.length) return null;
+        return (
+          <section
+            className="project-section"
+            id={section.id}
+            aria-labelledby={`${section.id}-title`}
+            key={section.id}
+          >
+            <h2 className="project-section__title" id={`${section.id}-title`}>
+              {section.title}
+            </h2>
+            <div className="project-cards__stack">{body}</div>
+          </section>
+        );
+      })}
 
       {visibleMoreProjects.length > 0 && (
         <div className="project-cards__grid">
@@ -248,6 +293,6 @@ export function ProjectCards() {
       {openPopup && (
         <ProjectPopupModal content={openPopup} onClose={() => setOpenPopupSlug(null)} />
       )}
-    </section>
+    </div>
   );
 }

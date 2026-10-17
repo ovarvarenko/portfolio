@@ -1,15 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { getLenisInstance } from "../hooks/useLenis";
 
-// Clearance for the fixed header when landing on an in-page anchor.
-const HASH_SCROLL_OFFSET = -100;
+// Clearance above an anchored section comes from its CSS scroll-margin-top
+// (header height + 24px on desktop). Lenis and scrollIntoView apply it
+// themselves; only the manual window.scrollTo fallback needs it spelled out.
+function scrollMargin(target: HTMLElement) {
+  return parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+}
 
 export function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
+  const previousPathname = useRef<string | null>(null);
 
   useEffect(() => {
     const lenis = getLenisInstance();
+    const samePage = previousPathname.current === pathname;
+    previousPathname.current = pathname;
+
+    // Header anchor clicked on the page it points to: glide there.
+    if (hash && samePage) {
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (!target) return;
+      if (lenis) {
+        lenis.scrollTo(target);
+      } else {
+        // Smooth via html { scroll-behavior }, instant with reduced motion.
+        target.scrollIntoView({ block: "start" });
+      }
+      return;
+    }
 
     // "/#logistics" etc.: wait for the target to render, then jump to it.
     // Content above it (images, cards) can still change height right after
@@ -26,9 +46,12 @@ export function ScrollToTop() {
           // Lenis caches the scroll limit; refresh it so the new page's
           // height is used rather than the previous page's.
           lenis.resize();
-          lenis.scrollTo(target, { immediate: true, force: true, offset: HASH_SCROLL_OFFSET });
+          lenis.scrollTo(target, { immediate: true, force: true });
         } else {
-          window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY + HASH_SCROLL_OFFSET);
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - scrollMargin(target),
+            behavior: "instant",
+          });
         }
       };
 
@@ -66,9 +89,9 @@ export function ScrollToTop() {
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 
   return null;
 }

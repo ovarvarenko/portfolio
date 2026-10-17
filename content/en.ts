@@ -27,11 +27,11 @@ export const en: SiteContent = {
     segments: [
       {
         label: "Growth:",
-        description: "onboarding, paywalls and experiments tied to real metrics.",
+        description: "activation through onboarding and experiments tied to real metrics.",
       },
       {
         label: "Complex products:",
-        description: "multi-role platforms, dashboards and design systems that scale.",
+        description: "problem discovery, data-heavy dashboards, data visualization and design systems that scale.",
       },
     ],
   },
@@ -332,7 +332,7 @@ export const en: SiteContent = {
       items: [
         {
           title: "Ask about the job, not the job title",
-          text: "Profession told us nothing about what people came to do. One intent question did.",
+          text: "Profession told us nothing about what people came to do, so the onboarding asks about intent.",
         },
         {
           title: "Test the question before the personalization",
@@ -341,6 +341,10 @@ export const en: SiteContent = {
         {
           title: "Every conversion test needs a guardrail",
           text: "More trials mean nothing if trial-to-paid drops.",
+        },
+        {
+          title: "Personalization has a price",
+          text: "The deeper the personalization, the more we ask from users. File access gives the richest signal and the highest friction, so the ask has to be earned.",
         },
       ],
     },

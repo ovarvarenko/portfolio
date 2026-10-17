@@ -13,7 +13,10 @@
   font-weight: 600;
   color: #ffffff;
   white-space: nowrap;
-  background: #5b6ce6;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 8px 14px;
   border-radius: 999px;
   opacity: 0;
@@ -21,6 +24,7 @@
 }
 
 .cursor-follow-label--disabled {
+  border-color: transparent;
   background: #eceae6;
   color: #0d1017;
 }

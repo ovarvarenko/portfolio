@@ -23,7 +23,7 @@ export function ContactCta() {
   };
 
   return (
-    <section className="contact-cta">
+    <section className="contact-cta" id="contact">
       <h2 className="contact-cta__heading">{content.contactCta.heading}</h2>
       <p className="contact-cta__subtext">{content.contactCta.subtext}</p>
       <div className="contact-cta__actions">

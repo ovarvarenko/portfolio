@@ -10,6 +10,29 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Lenis animates the scroll itself; native smoothing on top would fight it. */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+/* Anchored sections clear the sticky header (desktop only; on smaller
+   screens the header scrolls away with the page). */
+[id] {
+  scroll-margin-top: 24px;
+}
+
+@media (min-width: 1024px) {
+  [id] {
+    scroll-margin-top: calc(var(--header-height, 80px) + 24px);
+  }
+}
+
 body {
   margin: 0;
   min-height: 100vh;

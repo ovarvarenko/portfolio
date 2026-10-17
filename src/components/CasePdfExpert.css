@@ -791,7 +791,7 @@
 
 .case-pdfx__key-learnings-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   margin-top: 40px;
 }
@@ -931,6 +931,20 @@
 
   .case-pdfx__research-image {
     min-height: 280px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .case-pdfx__key-learnings-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-pdfx__key-learnings-column:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .case-pdfx__key-learnings-column:nth-child(odd) .case-pdfx__key-learnings-divider {
+    display: none;
   }
 }
 
