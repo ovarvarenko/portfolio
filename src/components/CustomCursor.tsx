@@ -158,7 +158,9 @@ export function CustomCursor() {
       <canvas className="custom-cursor__layer custom-cursor__trail" ref={canvasRef} />
       <div className="custom-cursor__layer custom-cursor__layer--circle" ref={circleLayerRef}>
         <div className="custom-cursor__circle" ref={circleRef}>
-          <span className="custom-cursor__label" ref={labelRef}>Open Project</span>
+          <div className="custom-cursor__pill">
+            <span className="custom-cursor__label" ref={labelRef}>Open Project</span>
+          </div>
         </div>
       </div>
     </div>,

@@ -38,10 +38,35 @@
   opacity: 0;
 }
 
-/* The layer sits at 0×0 on the pointer; the circle centers on that point.
-   Base transition is the "leave" timing: text fades first, then the pill shrinks. */
+/* The layer sits at 0×0 on the pointer. The circle is a bare wrapper that only
+   positions and scales; the blur lives on the pill's ::before, which is never
+   scaled, faded or transitioned. */
 .custom-cursor__circle {
   --pill-width: 120px;
+  width: max-content;
+  transform: translate3d(-50%, -50%, 0);
+  transition: transform 200ms ease-out;
+}
+
+/* Other clickable things: the circle just grows to 22px. */
+.custom-cursor__circle.is-hovering {
+  transform: translate3d(-50%, -50%, 0) scale(1.5714);
+}
+
+.custom-cursor__circle.is-pill {
+  transform: translate3d(-50%, -70%, 0);
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.custom-cursor__circle.is-pill.is-pressed {
+  transform: translate3d(-50%, -70%, 0) scale(0.95);
+  transition-duration: 100ms;
+}
+
+/* Base transition is the "leave" timing: text fades first, then the pill shrinks. */
+.custom-cursor__pill {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,45 +77,45 @@
   border-radius: 999px;
   background: #ffffff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-  transform: translate3d(-50%, -50%, 0);
   transition:
     width 220ms cubic-bezier(0.22, 1, 0.36, 1) 100ms,
     height 220ms cubic-bezier(0.22, 1, 0.36, 1) 100ms,
-    transform 200ms ease-out,
     background-color 220ms ease-out 100ms,
     border-color 220ms ease-out 100ms,
-    backdrop-filter 0s linear 320ms,
     box-shadow 220ms ease-out 100ms;
 }
 
-/* Other clickable things: the circle just grows to 22px. */
-.custom-cursor__circle.is-hovering {
-  transform: translate3d(-50%, -50%, 0) scale(1.5714);
+.custom-cursor__pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(20, 20, 24, 0.35);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  visibility: hidden;
+  transition: visibility 0s linear 320ms;
 }
 
-.custom-cursor__circle.is-pill {
+.custom-cursor__circle.is-pill .custom-cursor__pill {
   width: var(--pill-width);
   height: 40px;
   padding: 0 18px;
   border-color: rgba(255, 255, 255, 0.9);
-  background: rgba(20, 20, 24, 0.35);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  background: transparent;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-  transform: translate3d(-50%, -70%, 0);
   transition:
     width 280ms cubic-bezier(0.22, 1, 0.36, 1),
     height 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
     background-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    backdrop-filter 0s,
     box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.custom-cursor__circle.is-pill.is-pressed {
-  transform: translate3d(-50%, -70%, 0) scale(0.95);
-  transition-duration: 100ms;
+.custom-cursor__circle.is-pill .custom-cursor__pill::before {
+  visibility: visible;
+  transition: none;
 }
 
 .custom-cursor__label {
