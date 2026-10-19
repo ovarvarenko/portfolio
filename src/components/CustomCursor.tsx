@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import "./CustomCursor.css";
 
 const TRAIL_LIFETIME = 450;
@@ -83,7 +84,6 @@ export function CustomCursor() {
 
     const setPill = (on: boolean) => {
       circle.classList.toggle("is-pill", on);
-      circleLayer.classList.toggle("is-pill", on);
       canvas.classList.toggle("is-hidden", on);
       if (!on) circle.classList.remove("is-pressed");
     };
@@ -153,14 +153,15 @@ export function CustomCursor() {
 
   if (!enabled) return null;
 
-  return (
+  return createPortal(
     <div className="custom-cursor" ref={rootRef} aria-hidden="true">
       <canvas className="custom-cursor__layer custom-cursor__trail" ref={canvasRef} />
-      <div className="custom-cursor__layer custom-cursor__layer--blend" ref={circleLayerRef}>
+      <div className="custom-cursor__layer custom-cursor__layer--circle" ref={circleLayerRef}>
         <div className="custom-cursor__circle" ref={circleRef}>
           <span className="custom-cursor__label" ref={labelRef}>Open Project</span>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
