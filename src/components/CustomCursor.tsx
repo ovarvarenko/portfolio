@@ -6,6 +6,7 @@ const TRAIL_MAX_RADIUS = 7;
 const TRAIL_MAX_ALPHA = 0.5;
 const INTERACTIVE_SELECTOR =
   'a, button, [role="button"], .project-card, .split-project--clickable';
+const PILL_SELECTOR = "a.project-card, .project-card--clickable, .split-project--clickable";
 
 const ENABLE_QUERY = "(hover: hover) and (pointer: fine)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
@@ -31,6 +32,7 @@ export function CustomCursor() {
   const circleLayerRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const queries = [ENABLE_QUERY, REDUCED_MOTION_QUERY].map((q) => window.matchMedia(q));
@@ -46,7 +48,8 @@ export function CustomCursor() {
     const circle = circleRef.current;
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
-    if (!root || !circleLayer || !circle || !canvas || !ctx) return;
+    const label = labelRef.current;
+    if (!root || !label || !circleLayer || !circle || !canvas || !ctx) return;
 
     const mouse = { x: 0, y: 0 };
     const trail: TrailPoint[] = [];
@@ -71,10 +74,32 @@ export function CustomCursor() {
       root.classList.add("is-visible");
     };
 
+    // Measured once: the pill width can't be animated to "auto".
+    const measure = () => {
+      circle.style.setProperty("--pill-width", `${Math.ceil(label.scrollWidth) + 36 + 2}px`);
+    };
+    measure();
+    document.fonts?.ready.then(measure);
+
+    const setPill = (on: boolean) => {
+      circle.classList.toggle("is-pill", on);
+      circleLayer.classList.toggle("is-pill", on);
+      canvas.classList.toggle("is-hidden", on);
+      if (!on) circle.classList.remove("is-pressed");
+    };
+
     const handleOver = (event: MouseEvent) => {
       const target = event.target as Element | null;
-      circle.classList.toggle("is-hovering", Boolean(target?.closest?.(INTERACTIVE_SELECTOR)));
+      const pill = Boolean(target?.closest?.(PILL_SELECTOR));
+      setPill(pill);
+      circle.classList.toggle(
+        "is-hovering",
+        !pill && Boolean(target?.closest?.(INTERACTIVE_SELECTOR)),
+      );
     };
+
+    const handleDown = () => circle.classList.add("is-pressed");
+    const handleUp = () => circle.classList.remove("is-pressed");
 
     const handleOut = (event: MouseEvent) => {
       if (!event.relatedTarget) root.classList.remove("is-visible");
@@ -110,6 +135,8 @@ export function CustomCursor() {
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", handleMove, { passive: true });
     document.addEventListener("mouseover", handleOver, { passive: true });
+    document.addEventListener("mousedown", handleDown, { passive: true });
+    document.addEventListener("mouseup", handleUp, { passive: true });
     document.addEventListener("mouseout", handleOut, { passive: true });
     rafId = requestAnimationFrame(tick);
 
@@ -118,6 +145,8 @@ export function CustomCursor() {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMove);
       document.removeEventListener("mouseover", handleOver);
+      document.removeEventListener("mousedown", handleDown);
+      document.removeEventListener("mouseup", handleUp);
       document.removeEventListener("mouseout", handleOut);
     };
   }, [enabled]);
@@ -128,7 +157,9 @@ export function CustomCursor() {
     <div className="custom-cursor" ref={rootRef} aria-hidden="true">
       <canvas className="custom-cursor__layer custom-cursor__trail" ref={canvasRef} />
       <div className="custom-cursor__layer custom-cursor__layer--blend" ref={circleLayerRef}>
-        <div className="custom-cursor__circle" ref={circleRef} />
+        <div className="custom-cursor__circle" ref={circleRef}>
+          <span className="custom-cursor__label" ref={labelRef}>Open Project</span>
+        </div>
       </div>
     </div>
   );

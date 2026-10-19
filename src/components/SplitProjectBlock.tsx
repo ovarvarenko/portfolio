@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import type { SplitProject } from "../../content/types";
-import { CursorFollowLabel } from "./CursorFollowLabel";
 import "./SplitProjectBlock.css";
 
 export function SplitProjectBlock({
@@ -78,7 +77,6 @@ export function SplitProjectBlock({
           </div>
         </div>
       </article>
-      {isClickable && <CursorFollowLabel targetRef={blockRef} text="Open details" />}
     </>
   );
 }

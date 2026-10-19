@@ -118,7 +118,6 @@ function LargeCard({ card }: { card: ProjectCard }) {
           )}
         </div>
       </Link>
-      <CursorFollowLabel targetRef={cardRef} text="Open details" />
     </div>
   );
 }
@@ -148,7 +147,6 @@ function ResultCard({ card }: { card: ConsultCard }) {
         </div>
         <p className="result-card__context">{card.context}</p>
       </Link>
-      <CursorFollowLabel targetRef={cardRef} text="Open details" />
     </div>
   );
 }
@@ -194,9 +192,7 @@ function MoreCard({ project, onOpen }: { project: MoreProject; onOpen?: () => vo
           </ul>
         </div>
       </div>
-      {isClickable ? (
-        <CursorFollowLabel targetRef={cardRef} text="Open details" />
-      ) : (
+      {!isClickable && (
         <CursorFollowLabel targetRef={cardRef} text="Oops… coming soon" variant="disabled" />
       )}
     </div>
