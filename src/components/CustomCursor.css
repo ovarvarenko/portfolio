@@ -52,7 +52,6 @@
   border-radius: 999px;
   background: #ffffff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
   transform: translate3d(-50%, -50%, 0);
   transition:
     width 220ms cubic-bezier(0.22, 1, 0.36, 1) 100ms,
@@ -60,7 +59,7 @@
     transform 200ms ease-out,
     background-color 220ms ease-out 100ms,
     border-color 220ms ease-out 100ms,
-    backdrop-filter 220ms ease-out 100ms,
+    backdrop-filter 0s linear 320ms,
     box-shadow 220ms ease-out 100ms;
 }
 
@@ -75,8 +74,8 @@
   padding: 0 18px;
   border-color: rgba(255, 255, 255, 0.9);
   background: rgba(20, 20, 24, 0.35);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
   transform: translate3d(-50%, -70%, 0);
   transition:
@@ -85,7 +84,7 @@
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
     background-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    backdrop-filter 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 0s,
     box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
